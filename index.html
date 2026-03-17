@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="hu">
+<html lang="hu" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Szent Réz - Az Univerzum Éltető Rezgése</title>
+    <title>At&Harmonies - Az Univerzum Éltető Rezgése</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     
@@ -20,7 +20,7 @@
                         'ether-dark': '#1a1a1a',
                     },
                     fontFamily: {
-                        'mystic': ['"Cinzel"', 'serif'], // Elegáns betűtípus címsorokhoz
+                        'mystic': ['"Cinzel"', 'serif'],
                         'body': ['"Lora"', 'serif'],
                     }
                 }
@@ -29,38 +29,63 @@
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #1a1a1a; color: #e5e7eb; font-family: 'Lora', serif; }
+        body { background-color: #1a1a1a; color: #e5e7eb; font-family: 'Lora', serif; overflow-x: hidden; }
         h1, h2, h3, .nav-link { font-family: 'Cinzel', serif; }
         .glass-effect { background: rgba(44, 76, 59, 0.4); backdrop-filter: blur(10px); border: 1px solid rgba(200, 122, 65, 0.3); }
         .swiper-slide { display: flex; justify-content: center; align-items: center; }
-        .video-container { width: 100%; max-width: 400px; aspect-ratio: 9/16; background-color: #000; border-radius: 1rem; overflow: hidden; border: 2px solid #c87a41; box-shadow: 0 0 20px rgba(200, 122, 65, 0.2); }
+        .video-container { width: 100%; max-width: 400px; aspect-ratio: 9/16; background-color: #000; border-radius: 1rem; overflow: hidden; border: 2px solid #c87a41; box-shadow: 0 0 20px rgba(200, 122, 65, 0.2); position: relative;}
         video { width: 100%; height: 100%; object-fit: cover; }
+        
+        /* Gördítősáv testreszabása */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #1a1a1a; }
+        ::-webkit-scrollbar-thumb { background: #c87a41; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #e59a5d; }
     </style>
 </head>
 <body class="antialiased selection:bg-copper selection:text-white">
 
-    <nav class="fixed w-full z-50 glass-effect">
+    <nav class="fixed w-full z-50 glass-effect transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                <div class="flex-shrink-0">
-                    <span class="text-copper-light text-2xl font-semibold tracking-wider">SZENT RÉZ</span>
+                
+                <div class="flex-shrink-0 flex items-center space-x-3 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <svg class="h-8 w-8 text-copper" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 11a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 13a4.5 4.5 0 01-9 0v1m9 0a4.5 4.5 0 01-9 0v1" />
+                    </svg>
+                    <div class="flex flex-col">
+                        <span class="text-copper-light text-xl font-semibold leading-tight font-mystic tracking-wider">At&Harmonies</span>
+                        <span class="text-gray-400 text-xs italic leading-tight">Takács Attila</span>
+                    </div>
                 </div>
+
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="#nyaklancok" class="nav-link text-gray-300 hover:text-copper-light transition-colors duration-300">Nyaklánc</a>
                         <a href="#karperecek" class="nav-link text-gray-300 hover:text-copper-light transition-colors duration-300">Karperec</a>
-                        <a href="#eszkozok" class="nav-link text-gray-300 hover:text-copper-light transition-colors duration-300">Eszközök</a>
-                        <a href="#orgonitok" class="nav-link text-gray-300 hover:text-copper-light transition-colors duration-300">Orgonitok</a>
+                        <a href="#nyaklancok" class="nav-link text-gray-300 hover:text-copper-light transition-colors duration-300">Nyaklánc</a>
+                        <a href="#eszkozok" class="nav-link text-gray-300 hover:text-copper-light transition-colors duration-300">Eszközök & Orgonitok</a>
                         <a href="#kivagyok" class="nav-link text-copper font-bold hover:text-copper-light transition-colors duration-300">Ki vagyok én</a>
                     </div>
                 </div>
+                
                 <div class="-mr-2 flex md:hidden">
-                    <button type="button" class="text-copper hover:text-copper-light focus:outline-none">
+                    <button type="button" id="mobile-menu-btn" class="text-copper hover:text-copper-light focus:outline-none">
                         <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
                     </button>
                 </div>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-ether-dark border-b border-copper/20">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
+                <a href="#karperecek" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-copper-light">Karperec</a>
+                <a href="#nyaklancok" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-copper-light">Nyaklánc</a>
+                <a href="#eszkozok" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-copper-light">Eszközök & Orgonitok</a>
+                <a href="#kivagyok" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-copper">Ki vagyok én</a>
             </div>
         </div>
     </nav>
@@ -77,32 +102,47 @@
 
         <div class="swiper mySwiper max-w-5xl mx-auto">
             <div class="swiper-wrapper">
+                
                 <div class="swiper-slide py-8">
-                    <div class="video-container relative group">
+                    <div class="video-container group">
                         <video loop muted playsinline autoplay>
-                            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                            <source src="./Messenger_creation_0F2EB5D7-A53B-4C.mp4" type="video/mp4">
                         </video>
                         <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-transparent p-6 text-left">
-                            <h3 class="text-copper-light text-xl font-semibold">Tensor Vízstrukturáló</h3>
+                            <h3 class="text-copper-light text-xl font-semibold">Energetikai Műhely</h3>
+                            <p class="text-sm text-gray-300">A teremtés pillanata.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide py-8">
+                    <div class="video-container group">
+                        <video loop muted playsinline autoplay>
+                            <source src="./Messenger_creation_29D9ACAD-5F44-4A.mp4" type="video/mp4">
+                        </video>
+                        <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-transparent p-6 text-left">
+                            <h3 class="text-copper-light text-xl font-semibold">Tensor Technológiák</h3>
                             <p class="text-sm text-gray-300">Tiszta szándék, kristályos energia.</p>
                         </div>
                     </div>
                 </div>
+
                 <div class="swiper-slide py-8">
-                    <div class="video-container relative group">
-                         <video loop muted playsinline autoplay>
-                            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    <div class="video-container group">
+                        <video loop muted playsinline autoplay>
+                            <source src="./Messenger_creation_96C6C926-5B68-48.mp4" type="video/mp4">
                         </video>
                         <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-transparent p-6 text-left">
-                            <h3 class="text-copper-light text-xl font-semibold">Sacred Flow Karperec</h3>
+                            <h3 class="text-copper-light text-xl font-semibold">Sacred Flow</h3>
                             <p class="text-sm text-gray-300">Harmónia a csuklón.</p>
                         </div>
                     </div>
                 </div>
+
                 <div class="swiper-slide py-8">
-                    <div class="video-container relative group">
-                         <video loop muted playsinline autoplay>
-                            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    <div class="video-container group">
+                        <video loop muted playsinline autoplay>
+                            <source src="./Messenger_creation_A4A91E51-55A9-4EA.mp4" type="video/mp4">
                         </video>
                         <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-transparent p-6 text-left">
                             <h3 class="text-copper-light text-xl font-semibold">Orgon Generátorok</h3>
@@ -110,6 +150,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
             <div class="swiper-pagination"></div>
         </div>
@@ -137,10 +178,97 @@
         </div>
     </section>
 
-    <div id="termekek-helye"></div>
+    <section id="eszkozok" class="py-20 px-4 sm:px-6 lg:px-8 bg-ether-dark border-t border-copper/20">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-copper mb-16">Energetikai Poháralátétek & Eszközök</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <div class="glass-effect rounded-2xl overflow-hidden shadow-2xl transition-transform duration-300 hover:scale-[1.03] flex flex-col">
+                    <img src="./kepek/zold-lazurit.jpg" alt="Zöld Lazurit Triskelion" class="w-full h-72 object-cover border-b-2 border-copper">
+                    <div class="p-8 flex-grow flex flex-col space-y-4">
+                        <h3 class="text-xl font-semibold text-copper-light">Zöld Lazurit Triskelion – Tensor Vízstrukturáló (6 cm)</h3>
+                        <p class="text-sm text-gray-300 leading-relaxed italic flex-grow">
+                            Ez a kézzel kovácsolt réz Triskelion egy igazi "éter-vezető" antennaként működik. A zöld lazurit kristályok földelő rezgéseit ötvözi a Tensor technológia Lost Cubit frekvenciájával. Helyezd rá a vizespoharadat, és érezd, hogyan ébred fel a víz belső intelligenciája.
+                        </p>
+                        <div class="flex justify-between items-center pt-4 border-t border-copper/20">
+                            <span class="text-copper font-mystic text-2xl font-bold">18.900 Ft</span>
+                            <a href="#" class="inline-block px-4 py-2 border-2 border-copper text-copper font-semibold rounded-full hover:bg-copper hover:text-white transition-colors">Érdekel</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-effect rounded-2xl overflow-hidden shadow-2xl transition-transform duration-300 hover:scale-[1.03] flex flex-col">
+                    <img src="./kepek/eletfaja.jpg" alt="Energetikai poháralátét – Élet fája" class="w-full h-72 object-cover border-b-2 border-copper">
+                    <div class="p-8 flex-grow flex flex-col space-y-4">
+                        <h3 class="text-xl font-semibold text-copper-light">Élet Fája Poháralátét – Lazurit, Citrin & Tensor (9 cm)</h3>
+                        <p class="text-sm text-gray-300 leading-relaxed italic flex-grow">
+                            A szív és a bőség energiájának tökéletes találkozása. A közepén látható réz Életfája nem csupán szimbólum: mint egy éter-antenna, vezeti és felerősíti az univerzum gyógyító rezgéseit közvetlenül a vízedbe. Földelés és védelem egyben.
+                        </p>
+                        <div class="flex justify-between items-center pt-4 border-t border-copper/20">
+                            <span class="text-copper font-mystic text-2xl font-bold">24.500 Ft</span>
+                            <a href="#" class="inline-block px-4 py-2 border-2 border-copper text-copper font-semibold rounded-full hover:bg-copper hover:text-white transition-colors">Érdekel</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-effect rounded-2xl overflow-hidden shadow-2xl transition-transform duration-300 hover:scale-[1.03] flex flex-col">
+                    <img src="./kepek/kek-kvarc.jpg" alt="Vízstrukturáló poháralátét – kék kvarckristály" class="w-full h-72 object-cover border-b-2 border-copper">
+                    <div class="p-8 flex-grow flex flex-col space-y-4">
+                        <h3 class="text-xl font-semibold text-copper-light">Vízstrukturáló Poháralátét – Kék kvarc & Triskelion (6 cm)</h3>
+                        <p class="text-sm text-gray-300 leading-relaxed italic flex-grow">
+                            A kristályok és a réz legtisztább kapcsolata. A Tiszta Kék Kvarckristály hűsítő rezgését ötvözi a Lost Cubit tensor frekvenciával. A réz Triskelion spirál egy szakrális geometria-alapú erőteret hoz létre a vízed körül.
+                        </p>
+                        <div class="flex justify-between items-center pt-4 border-t border-copper/20">
+                            <span class="text-copper font-mystic text-2xl font-bold">19.500 Ft</span>
+                            <a href="#" class="inline-block px-4 py-2 border-2 border-copper text-copper font-semibold rounded-full hover:bg-copper hover:text-white transition-colors">Érdekel</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-effect rounded-2xl overflow-hidden shadow-2xl transition-transform duration-300 hover:scale-[1.03] flex flex-col">
+                    <img src="./kepek/ametiszt.jpg" alt="Vízstrukturáló poháralátét – Ametiszt" class="w-full h-72 object-cover border-b-2 border-copper">
+                    <div class="p-8 flex-grow flex flex-col space-y-4">
+                        <h3 class="text-xl font-semibold text-copper-light">Vízstrukturáló Poháralátét – Ametiszt & Lost Cubit (6 cm)</h3>
+                        <p class="text-sm text-gray-300 leading-relaxed italic flex-grow">
+                            Csend, tisztaság és spirituális védelem. Az Ametiszt védelmező, spirituális rezgését ötvözi a Lost Cubit frekvenciával. A réz spirálok nemcsak vezetik az energiát, hanem megtisztítják és éltető éter-frekvenciákkal töltik meg a vizet.
+                        </p>
+                        <div class="flex justify-between items-center pt-4 border-t border-copper/20">
+                            <span class="text-copper font-mystic text-2xl font-bold">21.000 Ft</span>
+                            <a href="#" class="inline-block px-4 py-2 border-2 border-copper text-copper font-semibold rounded-full hover:bg-copper hover:text-white transition-colors">Érdekel</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-effect rounded-2xl overflow-hidden shadow-2xl transition-transform duration-300 hover:scale-[1.03] flex flex-col">
+                    <img src="./kepek/rez-kristaly.jpg" alt="Réz-kristály poháralátét 9cm" class="w-full h-72 object-cover border-b-2 border-copper">
+                    <div class="p-8 flex-grow flex flex-col space-y-4">
+                        <h3 class="text-xl font-semibold text-copper-light">Rusztikus Réz-kristály Poháralátét (9cm)</h3>
+                        <p class="text-sm text-gray-300 leading-relaxed italic flex-grow">
+                            Kézműves egyszerűség, felerősített energia. A réz tiszta vezetését és a természetes kristályok egyedi rezgését egyesíti egy rusztikus, kézzel kovácsolt formában, állandó éter-energiával töltött erőteret generálva.
+                        </p>
+                        <div class="flex justify-between items-center pt-4 border-t border-copper/20">
+                            <span class="text-copper font-mystic text-2xl font-bold">16.000 Ft</span>
+                            <a href="#" class="inline-block px-4 py-2 border-2 border-copper text-copper font-semibold rounded-full hover:bg-copper hover:text-white transition-colors">Érdekel</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="karperecek" class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-t from-earth-green/20 to-ether-dark border-t border-copper/20">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-copper mb-16">Földelő Réz Karperecek</h2>
+            
+            <div class="text-center text-gray-400 italic mb-10">
+                <p>A karperecek feltöltése hamarosan...</p>
+                </div>
+        </div>
+    </section>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
+        // Swiper a videókhoz
         var swiper = new Swiper(".mySwiper", {
             effect: "coverflow",
             grabCursor: true,
@@ -158,10 +286,5 @@
                 clickable: true,
             },
             autoplay: {
-                delay: 3500,
-                disableOnInteraction: false,
-            }
-        });
-    </script>
-</body>
-</html>
+                delay: 4500,
+                di

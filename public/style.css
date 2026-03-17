@@ -62,3 +62,126 @@ body {
   width: 100%;
   display: block;
 }
+/* --- ÚJ ELEMEK STÍLUSAI --- */
+
+/* Navigáció */
+.main-nav {
+  background-color: var(--natural-green);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.logo {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 0 0 10px var(--copper-glow);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--copper-glow);
+}
+
+/* Szekciók általános beállítása */
+.section-title {
+  text-align: center;
+  color: var(--earth-brown);
+  margin-bottom: 30px;
+  font-size: 32px;
+}
+
+/* Hero (fejléc) szekció */
+.hero-section {
+  background-color: var(--earth-brown);
+  color: var(--light-bg);
+  text-align: center;
+  padding: 60px 20px;
+  border-bottom: 5px solid var(--copper-base);
+}
+
+.hero-section h1 {
+  color: var(--copper-glow);
+  text-shadow: 0 0 15px rgba(255, 179, 71, 0.5);
+}
+
+/* Shop Grid elrendezés */
+.shop-section {
+  padding: 50px 20px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.product-card {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid #ddd;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  transition: transform 0.3s;
+}
+
+.product-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--copper-base);
+}
+
+.product-card img {
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.product-card .price {
+  display: block;
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--natural-green);
+  margin: 15px 0;
+}
+
+/* Ki vagyok én szekció */
+.about-section {
+  background-color: var(--earth-brown);
+  color: var(--light-bg);
+  padding: 60px 20px;
+}
+
+.about-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: justify;
+  line-height: 1.8;
+  font-size: 18px;
+}
+
+.about-content .section-title {
+  color: var(--copper-glow);
+}

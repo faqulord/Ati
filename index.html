@@ -34,8 +34,6 @@
         .swiper-slide { display: flex; justify-content: center; align-items: center; }
         .video-container { width: 100%; max-width: 400px; aspect-ratio: 9/16; background-color: #000; border-radius: 1rem; overflow: hidden; border: 2px solid #c87a41; box-shadow: 0 0 20px rgba(200, 122, 65, 0.2); position: relative;}
         video { width: 100%; height: 100%; object-fit: cover; }
-        
-        /* Gördítősáv */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #1a1a1a; }
         ::-webkit-scrollbar-thumb { background: #c87a41; border-radius: 4px; }
@@ -46,7 +44,6 @@
     <nav class="fixed w-full z-50 glass-effect transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                
                 <div class="flex-shrink-0 flex items-center space-x-3 cursor-pointer" onclick="window.scrollTo(0,0)">
                     <svg class="h-8 w-8 text-copper" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
@@ -58,7 +55,6 @@
                         <span class="text-gray-400 text-xs italic leading-tight">Takács Attila</span>
                     </div>
                 </div>
-
                 <div>
                     <button type="button" id="hamburger-btn" class="text-copper hover:text-copper-light focus:outline-none transition-transform duration-300 hover:scale-110">
                         <svg class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -79,10 +75,10 @@
             </button>
         </div>
         <div class="flex flex-col space-y-6 px-8 pt-4">
-            <a href="#kivagyok" class="menu-link nav-link text-xl text-copper hover:text-copper-light border-b border-copper/20 pb-2">Kezdőlap</a>
-            <a href="#" class="menu-link nav-link text-xl text-gray-300 hover:text-copper-light">Nyakláncok</a>
-            <a href="#" class="menu-link nav-link text-xl text-gray-300 hover:text-copper-light">Karperecek</a>
-            <a href="#" class="menu-link nav-link text-xl text-gray-300 hover:text-copper-light">Orgonitok</a>
+            <a href="index.html" class="menu-link nav-link text-xl text-copper hover:text-copper-light border-b border-copper/20 pb-2">Kezdőlap</a>
+            <a href="nyaklancok.html" class="menu-link nav-link text-xl text-gray-300 hover:text-copper-light">Nyakláncok</a>
+            <a href="karperecek.html" class="menu-link nav-link text-xl text-gray-300 hover:text-copper-light">Karperecek</a>
+            <a href="orgonitok.html" class="menu-link nav-link text-xl text-gray-300 hover:text-copper-light">Eszközök & Orgonitok</a>
         </div>
     </div>
     <div id="menu-overlay" class="fixed inset-0 bg-black/50 z-[55] hidden opacity-0 transition-opacity duration-300"></div>
@@ -93,7 +89,7 @@
                 Kapcsolódj az Univerzum Éltető Rezgéséhez
             </h1>
             <p class="text-lg text-gray-400 max-w-2xl mx-auto italic">
-                A réz nem csupán fém. Földelő éter, mely összeköti a testet a kozmosz végtelen energiájával. Húzd balra a bemutatókért.
+                A réz nem csupán fém. Földelő éter, mely összeköti a testet a kozmosz végtelen energiájával.
             </p>
         </div>
 
@@ -102,48 +98,44 @@
                 
                 <div class="swiper-slide py-8">
                     <div class="video-container group">
-                        <video loop muted playsinline autoplay preload="auto" controls>
-                            <source src="video1.mp4" type="video/mp4">
+                        <video loop muted playsinline autoplay>
+                            <source src="./video1.mp4" type="video/mp4">
                         </video>
                         <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-transparent p-6 text-left pointer-events-none">
                             <h3 class="text-copper-light text-xl font-semibold">Energetikai Műhely</h3>
-                            <p class="text-sm text-gray-300">A teremtés pillanata.</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="swiper-slide py-8">
                     <div class="video-container group">
-                        <video loop muted playsinline autoplay preload="auto" controls>
-                            <source src="video2.mp4" type="video/mp4">
+                        <video loop muted playsinline autoplay>
+                            <source src="./video2.mp4" type="video/mp4">
                         </video>
                         <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-transparent p-6 text-left pointer-events-none">
                             <h3 class="text-copper-light text-xl font-semibold">Tensor Technológiák</h3>
-                            <p class="text-sm text-gray-300">Tiszta szándék, kristályos energia.</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="swiper-slide py-8">
                     <div class="video-container group">
-                        <video loop muted playsinline autoplay preload="auto" controls>
-                            <source src="video3.mp4" type="video/mp4">
+                        <video loop muted playsinline autoplay>
+                            <source src="./video3.mp4" type="video/mp4">
                         </video>
                         <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-transparent p-6 text-left pointer-events-none">
                             <h3 class="text-copper-light text-xl font-semibold">Sacred Flow</h3>
-                            <p class="text-sm text-gray-300">Harmónia a csuklón.</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="swiper-slide py-8">
                     <div class="video-container group">
-                        <video loop muted playsinline autoplay preload="auto" controls>
-                            <source src="video4.mp4" type="video/mp4">
+                        <video loop muted playsinline autoplay>
+                            <source src="./video4.mp4" type="video/mp4">
                         </video>
                         <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-transparent p-6 text-left pointer-events-none">
                             <h3 class="text-copper-light text-xl font-semibold">Orgon Generátorok</h3>
-                            <p class="text-sm text-gray-300">A tér tisztítása.</p>
                         </div>
                     </div>
                 </div>
@@ -180,35 +172,20 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        // Swiper a videókhoz
         var swiper = new Swiper(".mySwiper", {
             effect: "coverflow",
             grabCursor: true,
             centeredSlides: true,
             slidesPerView: "auto",
-            coverflowEffect: {
-                rotate: 20,
-                stretch: 0,
-                depth: 200,
-                modifier: 1,
-                slideShadows: true,
-            },
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-            autoplay: {
-                delay: 4500,
-                disableOnInteraction: false,
-            }
+            coverflowEffect: { rotate: 20, stretch: 0, depth: 200, modifier: 1, slideShadows: true, },
+            pagination: { el: ".swiper-pagination", clickable: true, },
+            autoplay: { delay: 4500, disableOnInteraction: false, }
         });
 
-        // Hamburger menü vezérlése
         const hamburgerBtn = document.getElementById('hamburger-btn');
         const closeBtn = document.getElementById('close-menu-btn');
         const sideMenu = document.getElementById('side-menu');
         const overlay = document.getElementById('menu-overlay');
-        const menuLinks = document.querySelectorAll('.menu-link');
 
         function openMenu() {
             sideMenu.classList.remove('translate-x-full');
@@ -225,10 +202,6 @@
         hamburgerBtn.addEventListener('click', openMenu);
         closeBtn.addEventListener('click', closeMenu);
         overlay.addEventListener('click', closeMenu);
-        
-        menuLinks.forEach(link => {
-            link.addEventListener('click', closeMenu);
-        });
     </script>
 </body>
 </html>

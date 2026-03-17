@@ -102,10 +102,10 @@
                 
                 <div class="swiper-slide py-8">
                     <div class="video-container group">
-                        <video loop muted playsinline autoplay>
-                            <source src="./video1.mp4" type="video/mp4">
+                        <video loop muted playsinline autoplay preload="auto" controls>
+                            <source src="video1.mp4" type="video/mp4">
                         </video>
-                        <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-transparent p-6 text-left">
+                        <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-transparent p-6 text-left pointer-events-none">
                             <h3 class="text-copper-light text-xl font-semibold">Energetikai Műhely</h3>
                             <p class="text-sm text-gray-300">A teremtés pillanata.</p>
                         </div>
@@ -114,10 +114,10 @@
 
                 <div class="swiper-slide py-8">
                     <div class="video-container group">
-                        <video loop muted playsinline autoplay>
-                            <source src="./video2.mp4" type="video/mp4">
+                        <video loop muted playsinline autoplay preload="auto" controls>
+                            <source src="video2.mp4" type="video/mp4">
                         </video>
-                        <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-transparent p-6 text-left">
+                        <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-transparent p-6 text-left pointer-events-none">
                             <h3 class="text-copper-light text-xl font-semibold">Tensor Technológiák</h3>
                             <p class="text-sm text-gray-300">Tiszta szándék, kristályos energia.</p>
                         </div>
@@ -126,10 +126,10 @@
 
                 <div class="swiper-slide py-8">
                     <div class="video-container group">
-                        <video loop muted playsinline autoplay>
-                            <source src="./video3.mp4" type="video/mp4">
+                        <video loop muted playsinline autoplay preload="auto" controls>
+                            <source src="video3.mp4" type="video/mp4">
                         </video>
-                        <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-transparent p-6 text-left">
+                        <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-transparent p-6 text-left pointer-events-none">
                             <h3 class="text-copper-light text-xl font-semibold">Sacred Flow</h3>
                             <p class="text-sm text-gray-300">Harmónia a csuklón.</p>
                         </div>
@@ -138,10 +138,10 @@
 
                 <div class="swiper-slide py-8">
                     <div class="video-container group">
-                        <video loop muted playsinline autoplay>
-                            <source src="./video4.mp4" type="video/mp4">
+                        <video loop muted playsinline autoplay preload="auto" controls>
+                            <source src="video4.mp4" type="video/mp4">
                         </video>
-                        <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-transparent p-6 text-left">
+                        <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-transparent p-6 text-left pointer-events-none">
                             <h3 class="text-copper-light text-xl font-semibold">Orgon Generátorok</h3>
                             <p class="text-sm text-gray-300">A tér tisztítása.</p>
                         </div>
@@ -177,9 +177,6 @@
     <footer class="bg-black py-8 border-t border-copper/30 text-center text-gray-500 text-sm">
         <p>&copy; 2024 At&Harmonies - Takács Attila. Minden jog fenntartva.</p>
     </footer>
-
-    <div id="hidden-products" class="hidden">
-        </div>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
@@ -229,7 +226,6 @@
         closeBtn.addEventListener('click', closeMenu);
         overlay.addEventListener('click', closeMenu);
         
-        // Zárja be a menüt, ha rákattintunk egy linkre
         menuLinks.forEach(link => {
             link.addEventListener('click', closeMenu);
         });

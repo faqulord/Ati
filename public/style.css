@@ -1,0 +1,64 @@
+/* Alapvető beállítások és CSS változók a színekhez */
+:root {
+  --natural-green: #4A5D23; /* Természetes mélyzöld */
+  --earth-brown: #5C4033;   /* Földes barna */
+  --light-bg: #F5F5DC;      /* Világos, természetes bézs háttér */
+  --copper-base: #B87333;   /* Réz alap szín */
+  --copper-glow: #FFB347;   /* Ragyogó, éteres réz árnyalat */
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--light-bg);
+  color: var(--earth-brown);
+}
+
+/* Éteres réz gomb stílus */
+.copper-btn {
+  background: linear-gradient(135deg, var(--copper-base), #d98cb3);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  /* Ez a box-shadow adja a ragyogó, energiát sugárzó hatást */
+  box-shadow: 0 0 15px var(--copper-glow);
+}
+
+.copper-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px var(--copper-glow), 0 0 10px white;
+}
+
+/* Balra húzható videó galéria (Swipe Carousel) */
+.video-slider-container {
+  display: flex;
+  overflow-x: auto; /* Vízszintes görgetés engedélyezése */
+  scroll-snap-type: x mandatory; /* Sima, oldalankénti ugrás beállítása */
+  gap: 20px;
+  padding: 20px;
+  /* Elrejtjük a görgetősávot, hogy trendibb legyen */
+  scrollbar-width: none; 
+}
+
+.video-slider-container::-webkit-scrollbar {
+  display: none; /* Görgetősáv elrejtése Chrome/Safari alatt */
+}
+
+/* Egyedi videó kártya */
+.video-item {
+  flex: 0 0 80%; /* A képernyő 80%-át foglalja el egy videó */
+  scroll-snap-align: center; /* Mindig középre igazítja húzás után */
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border: 2px solid var(--natural-green);
+}
+
+.video-item video {
+  width: 100%;
+  display: block;
+}

@@ -37,6 +37,15 @@
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #1a1a1a; }
         ::-webkit-scrollbar-thumb { background: #c87a41; border-radius: 4px; }
+        
+        /* ÚSZÓ SÁV (TICKER) ANIMÁCIÓ */
+        @keyframes ticker {
+            0% { transform: translateX(100vw); }
+            100% { transform: translateX(-100%); }
+        }
+        .ticker-container { overflow: hidden; white-space: nowrap; width: 100%; background: rgba(44, 76, 59, 0.4); border-top: 1px solid rgba(200, 122, 65, 0.3); border-bottom: 1px solid rgba(200, 122, 65, 0.3); padding: 0.75rem 0; }
+        .ticker-text { display: inline-block; animation: ticker 25s linear infinite; font-family: 'Cinzel', serif; color: #e59a5d; font-size: 1.125rem; letter-spacing: 0.05em; }
+        .ticker-container:hover .ticker-text { animation-play-state: paused; } /* Hoverre megáll */
     </style>
 </head>
 <body class="antialiased selection:bg-copper selection:text-white">
@@ -83,8 +92,8 @@
     </div>
     <div id="menu-overlay" class="fixed inset-0 bg-black/50 z-[55] hidden opacity-0 transition-opacity duration-300"></div>
 
-    <section class="pt-32 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-earth-green/20 to-ether-dark relative overflow-hidden">
-        <div class="max-w-7xl mx-auto text-center mb-12 relative z-10">
+    <section class="pt-32 pb-16 px-0 sm:px-6 lg:px-8 bg-gradient-to-b from-earth-green/20 to-ether-dark relative overflow-hidden">
+        <div class="max-w-7xl mx-auto text-center mb-8 relative z-10 px-4">
             <h1 class="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-copper-light to-copper-dark mb-4">
                 Kapcsolódj az Univerzum Éltető Rezgéséhez
             </h1>
@@ -93,7 +102,12 @@
             </p>
         </div>
 
-        <div class="swiper mySwiper max-w-5xl mx-auto">
+        <div class="ticker-container mb-12 shadow-lg">
+            <div class="ticker-text shadow-sm cursor-pointer">
+                ✨ Lépj be a harmónia világába! Fedezd fel kézzel készített réz nyakláncainkat, karpereceinket és orgonitjainkat, melyek az Univerzum éltető rezgését közvetítik... ✨ Engedd, hogy a szakrális geometria és a kristályok ereje támogassa mindennapjaidat! ✨ Válassz a menüből! ✨
+            </div>
+        </div>
+        <div class="swiper mySwiper max-w-5xl mx-auto px-4">
             <div class="swiper-wrapper">
 
                 <div class="swiper-slide py-8">
@@ -184,7 +198,7 @@
             autoplay: { delay: 4500, disableOnInteraction: false, }
         });
 
-        // HANG ÉS LAPOZÁS KEZELŐ SCRIPT (Már nem fog elfutni a videó!)
+        // HANG ÉS LAPOZÁS KEZELŐ SCRIPT
         document.addEventListener('click', function(e) {
             const btn = e.target.closest('.mute-btn');
             if (!btn) return;
@@ -195,15 +209,11 @@
             const iconUnmuted = btn.querySelector('.icon-unmuted');
 
             if (video.muted) {
-                // Hang bekapcsolása ezen a videón
                 video.muted = false;
                 iconMuted.classList.add('hidden');
                 iconUnmuted.classList.remove('hidden');
-
-                // Lényeg: Állítsuk meg a Swiper automatikus lapozását!
                 swiper.autoplay.stop();
 
-                // Összes többi videó lenémítása (ne legyen hangzavar)
                 document.querySelectorAll('video').forEach(v => {
                     if (v !== video) {
                         v.muted = true;
@@ -215,19 +225,15 @@
                     }
                 });
             } else {
-                // Hang kikapcsolása ezen a videón
                 video.muted = true;
                 iconMuted.classList.remove('hidden');
                 iconUnmuted.classList.add('hidden');
-
-                // Mivel lenémította, újraindulhat a lapozás
                 swiper.autoplay.start();
             }
         });
 
-        // Ha kézzel elhúzod a slidert, némítsa le az összeset ÉS indítsa újra a lapozást
         swiper.on('slideChange', function () {
-            swiper.autoplay.start(); // Biztos ami biztos, újraindul
+            swiper.autoplay.start();
             document.querySelectorAll('video').forEach(v => {
                 v.muted = true;
                 const container = v.closest('.video-container');

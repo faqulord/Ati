@@ -184,7 +184,7 @@
             autoplay: { delay: 4500, disableOnInteraction: false, }
         });
 
-        // HANG-KEZELŐ SCRIPT (Bugmentes)
+        // HANG ÉS LAPOZÁS KEZELŐ SCRIPT (Már nem fog elfutni a videó!)
         document.addEventListener('click', function(e) {
             const btn = e.target.closest('.mute-btn');
             if (!btn) return;
@@ -199,6 +199,9 @@
                 video.muted = false;
                 iconMuted.classList.add('hidden');
                 iconUnmuted.classList.remove('hidden');
+
+                // Lényeg: Állítsuk meg a Swiper automatikus lapozását!
+                swiper.autoplay.stop();
 
                 // Összes többi videó lenémítása (ne legyen hangzavar)
                 document.querySelectorAll('video').forEach(v => {
@@ -216,11 +219,15 @@
                 video.muted = true;
                 iconMuted.classList.remove('hidden');
                 iconUnmuted.classList.add('hidden');
+
+                // Mivel lenémította, újraindulhat a lapozás
+                swiper.autoplay.start();
             }
         });
 
-        // Ha görgeted a slidert, némítsa le az összeset
+        // Ha kézzel elhúzod a slidert, némítsa le az összeset ÉS indítsa újra a lapozást
         swiper.on('slideChange', function () {
+            swiper.autoplay.start(); // Biztos ami biztos, újraindul
             document.querySelectorAll('video').forEach(v => {
                 v.muted = true;
                 const container = v.closest('.video-container');

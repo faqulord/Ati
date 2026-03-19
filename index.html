@@ -104,6 +104,10 @@
                         <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-transparent p-6 text-left pointer-events-none">
                             <h3 class="text-copper-light text-xl font-semibold">Energetikai Műhely</h3>
                         </div>
+                        <button class="mute-btn absolute bottom-5 right-5 z-20 bg-black/50 hover:bg-copper text-white p-2.5 rounded-full transition-colors border border-white/20">
+                            <svg class="w-6 h-6 icon-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"></path></svg>
+                            <svg class="w-6 h-6 icon-unmuted hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                        </button>
                     </div>
                 </div>
 
@@ -115,6 +119,10 @@
                         <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-transparent p-6 text-left pointer-events-none">
                             <h3 class="text-copper-light text-xl font-semibold">Tensor Technológiák</h3>
                         </div>
+                        <button class="mute-btn absolute bottom-5 right-5 z-20 bg-black/50 hover:bg-copper text-white p-2.5 rounded-full transition-colors border border-white/20">
+                            <svg class="w-6 h-6 icon-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"></path></svg>
+                            <svg class="w-6 h-6 icon-unmuted hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                        </button>
                     </div>
                 </div>
 
@@ -126,6 +134,10 @@
                         <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-transparent p-6 text-left pointer-events-none">
                             <h3 class="text-copper-light text-xl font-semibold">Sacred Flow</h3>
                         </div>
+                        <button class="mute-btn absolute bottom-5 right-5 z-20 bg-black/50 hover:bg-copper text-white p-2.5 rounded-full transition-colors border border-white/20">
+                            <svg class="w-6 h-6 icon-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"></path></svg>
+                            <svg class="w-6 h-6 icon-unmuted hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                        </button>
                     </div>
                 </div>
 
@@ -172,6 +184,57 @@
             autoplay: { delay: 4500, disableOnInteraction: false, }
         });
 
+        // HANG-KEZELŐ SCRIPT (Bugmentes)
+        document.addEventListener('click', function(e) {
+            const btn = e.target.closest('.mute-btn');
+            if (!btn) return;
+
+            const container = btn.closest('.video-container');
+            const video = container.querySelector('video');
+            const iconMuted = btn.querySelector('.icon-muted');
+            const iconUnmuted = btn.querySelector('.icon-unmuted');
+
+            if (video.muted) {
+                // Hang bekapcsolása ezen a videón
+                video.muted = false;
+                iconMuted.classList.add('hidden');
+                iconUnmuted.classList.remove('hidden');
+
+                // Összes többi videó lenémítása (ne legyen hangzavar)
+                document.querySelectorAll('video').forEach(v => {
+                    if (v !== video) {
+                        v.muted = true;
+                        const otherBtn = v.closest('.video-container')?.querySelector('.mute-btn');
+                        if(otherBtn) {
+                            otherBtn.querySelector('.icon-muted').classList.remove('hidden');
+                            otherBtn.querySelector('.icon-unmuted').classList.add('hidden');
+                        }
+                    }
+                });
+            } else {
+                // Hang kikapcsolása ezen a videón
+                video.muted = true;
+                iconMuted.classList.remove('hidden');
+                iconUnmuted.classList.add('hidden');
+            }
+        });
+
+        // Ha görgeted a slidert, némítsa le az összeset
+        swiper.on('slideChange', function () {
+            document.querySelectorAll('video').forEach(v => {
+                v.muted = true;
+                const container = v.closest('.video-container');
+                if(container) {
+                    const btn = container.querySelector('.mute-btn');
+                    if(btn) {
+                        btn.querySelector('.icon-muted').classList.remove('hidden');
+                        btn.querySelector('.icon-unmuted').classList.add('hidden');
+                    }
+                }
+            });
+        });
+
+        // Menü kezelés
         const hamburgerBtn = document.getElementById('hamburger-btn');
         const closeBtn = document.getElementById('close-menu-btn');
         const sideMenu = document.getElementById('side-menu');

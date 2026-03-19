@@ -17,6 +17,7 @@
                         'copper-dark': '#9b5625',
                         'earth-green': '#2c4c3b',
                         'ether-dark': '#1a1a1a',
+                        'menu-green': '#22c55e', /* Az ügyfél által húzott zöld vonalhoz hasonló szín */
                     },
                     fontFamily: {
                         'mystic': ['"Cinzel"', 'serif'],
@@ -42,33 +43,31 @@
 <body class="antialiased selection:bg-copper selection:text-white">
 
     <nav class="fixed w-full z-50 glass-effect transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <div class="flex flex-col items-center justify-center space-y-5">
-                
-                <div class="flex flex-col items-center justify-center bg-gradient-to-br from-[#f0f4f1] to-[#cbd1cc] px-10 py-4 rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.6)] border border-copper/50 cursor-pointer hover:scale-[1.02] transition-transform duration-300" onclick="window.scrollTo(0,0)">
-                    <div class="text-black text-4xl sm:text-5xl font-mystic leading-none tracking-[0.2em] ml-2">
-                        ITT
-                    </div>
-                    <div class="text-black text-2xl sm:text-3xl font-mystic leading-none tracking-[0.15em] mt-3 flex items-center ml-1">
-                        HARM<span class="text-[#d4af37] font-bold mx-[2px] text-3xl sm:text-4xl drop-shadow-md transform scale-110" style="font-family: sans-serif;">O</span>NIES
-                    </div>
-                    <div class="text-gray-600 text-xs sm:text-sm mt-3 tracking-[0.15em] font-sans font-semibold lowercase">
-                        from Attila Takacs
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0 flex items-center space-x-3 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <svg class="h-8 w-8 text-copper" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 11a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 13a4.5 4.5 0 01-9 0v1m9 0a4.5 4.5 0 01-9 0v1" />
+                    </svg>
+                    <div class="flex flex-col">
+                        <span class="text-copper-light text-xl font-semibold leading-tight font-mystic tracking-wider">ITT&Harmonies</span>
+                        <span class="text-gray-400 text-xs italic leading-tight">Takács Attila</span>
                     </div>
                 </div>
-
-                <div class="flex flex-wrap justify-center gap-4 sm:gap-8 w-full">
-                    <a href="index.html" class="nav-link text-lg md:text-xl font-bold text-[#4ade80] hover:text-white transition-colors border-b-2 border-transparent hover:border-[#4ade80] pb-1">Kezdőlap</a>
-                    <a href="nyaklancok.html" class="nav-link text-lg md:text-xl font-bold text-[#4ade80] hover:text-white transition-colors border-b-2 border-transparent hover:border-[#4ade80] pb-1">Nyakláncok</a>
-                    <a href="karperecek.html" class="nav-link text-lg md:text-xl font-bold text-[#4ade80] hover:text-white transition-colors border-b-2 border-transparent hover:border-[#4ade80] pb-1">Karperecek</a>
-                    <a href="orgonitok.html" class="nav-link text-lg md:text-xl font-bold text-[#4ade80] hover:text-white transition-colors border-b-2 border-transparent hover:border-[#4ade80] pb-1">Eszköz & Orgonit</a>
-                </div>
-
+            </div>
+            
+            <div class="flex flex-wrap justify-center sm:justify-start gap-x-6 gap-y-2 pb-4 pt-1 border-t border-copper/10">
+                <a href="index.html" class="nav-link text-[1.1rem] text-menu-green hover:text-white font-bold tracking-wide transition-colors">Kezdőlap</a>
+                <a href="nyaklancok.html" class="nav-link text-[1.1rem] text-menu-green hover:text-white font-bold tracking-wide transition-colors">Nyakláncok</a>
+                <a href="karperecek.html" class="nav-link text-[1.1rem] text-menu-green hover:text-white font-bold tracking-wide transition-colors">Karperecek</a>
+                <a href="orgonitok.html" class="nav-link text-[1.1rem] text-menu-green hover:text-white font-bold tracking-wide transition-colors">Eszköz & Orgonit</a>
             </div>
         </div>
     </nav>
 
-    <section class="pt-56 pb-16 px-0 sm:px-6 lg:px-8 bg-gradient-to-b from-earth-green/20 to-ether-dark relative overflow-hidden">
+    <section class="pt-40 pb-16 px-0 sm:px-6 lg:px-8 bg-gradient-to-b from-earth-green/20 to-ether-dark relative overflow-hidden">
         <div class="max-w-7xl mx-auto text-center mb-12 relative z-10 px-4">
             <h1 class="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-copper-light to-copper-dark mb-4">
                 Kapcsolódj az Univerzum Éltető Rezgéséhez

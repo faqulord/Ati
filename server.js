@@ -1,24 +1,32 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const path = require('path');
 
 const app = express();
-// A Railway automatikusan ad egy portot, vagy a 3000-est használjuk
+// A Railway megadja a portot
 const PORT = process.env.PORT || 3000; 
-
-// BEOLVASSUK A RAILWAYEN BEÁLLÍTOTT VÁLTOZÓDAT!
 const MONGO_URI = process.env.MONGO_URI; 
 
-// Hogy a szerverünk megértse a bejövő adatokat (pl. új rendelés)
+// Hogy a szerverünk megértse a bejövő adatokat (később a rendeléseknél kell)
 app.use(express.json()); 
 
-// Csatlakozás az adatbázishoz (Mongoose használatával)
-mongoose.connect(MONGO_URI)
-  .then(() => console.log('✅ BINGO! Sikeresen csatlakoztunk a MongoDB adatbázishoz!'))
-  .catch((err) => console.error('❌ Hiba az adatbázis csatlakozáskor:', err));
+// Csatlakozás az adatbázishoz
+if (MONGO_URI) {
+    mongoose.connect(MONGO_URI)
+      .then(() => console.log('✅ BINGO! Sikeresen csatlakoztunk a MongoDB adatbázishoz!'))
+      .catch((err) => console.error('❌ Hiba az adatbázis csatlakozáskor:', err));
+} else {
+    console.log('⚠️ Figyelem: Nincs beállítva a MONGO_URI változó!');
+}
 
-// Egy egyszerű teszt végpont, hogy lássuk, él-e a szerver
-app.get('/', (req, res) => {
-  res.send('Az A&T Harmonies szerver fut, az adatbázis készen áll a rendelések fogadására!');
+// --- ÍME A MEGOLDÁS A FEHÉR KÉPERNYŐRE ---
+// Megmondjuk a szervernek, hogy az aktuális mappában lévő HTML, CSS, képek és videók fájljait mutassa meg a látogatóknak.
+// Ez automatikusan betölti az index.html-t a főoldalon!
+app.use(express.static(__dirname));
+
+// Ha valaki olyan linkre kattint, ami nem létezik, dobjuk vissza a kezdőlapra
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 // Szerver elindítása

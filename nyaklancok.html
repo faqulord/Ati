@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>At&Harmonies - Nyakláncok</title>
+    <title>Nyakláncok - A&T Harmonies</title>
     <script src="https://cdn.tailwindcss.com"></script>
-
     <script>
         tailwind.config = {
             theme: {
@@ -16,6 +15,7 @@
                         'copper-dark': '#9b5625',
                         'earth-green': '#2c4c3b',
                         'ether-dark': '#1a1a1a',
+                        'elegant-green': '#77c79b',
                     },
                     fontFamily: {
                         'mystic': ['"Cinzel"', 'serif'],
@@ -25,152 +25,82 @@
             }
         }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
     <style>
         body { background-color: #1a1a1a; color: #e5e7eb; font-family: 'Lora', serif; overflow-x: hidden; }
         h1, h2, h3, .nav-link { font-family: 'Cinzel', serif; }
-        .glass-effect { background: rgba(44, 76, 59, 0.4); backdrop-filter: blur(10px); border: 1px solid rgba(200, 122, 65, 0.3); }
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #1a1a1a; }
-        ::-webkit-scrollbar-thumb { background: #c87a41; border-radius: 4px; }
+        .glass-effect { background: rgba(26, 26, 26, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(200, 122, 65, 0.15); }
+        .title-glow { text-shadow: 0 0 12px rgba(200, 122, 65, 0.8), 0 0 20px rgba(200, 122, 65, 0.4); }
     </style>
 </head>
-<body class="antialiased selection:bg-copper selection:text-white">
+<body class="antialiased selection:bg-copper selection:text-white flex flex-col min-h-screen">
 
     <nav class="fixed w-full z-50 glass-effect transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <div class="flex-shrink-0 flex items-center space-x-3 cursor-pointer" onclick="window.location.href='index.html'">
-                    <svg class="h-8 w-8 text-copper" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 11a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" />
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 13a4.5 4.5 0 01-9 0v1m9 0a4.5 4.5 0 01-9 0v1" />
-                    </svg>
-                    <div class="flex flex-col">
-                        <span class="text-copper-light text-xl font-semibold leading-tight font-mystic tracking-wider">At&Harmonies</span>
-                        <span class="text-gray-400 text-xs italic leading-tight">Takács Attila</span>
-                    </div>
+        <div class="max-w-7xl mx-auto px-4 py-3 sm:px-6 lg:px-8 flex flex-col items-center">
+            <div class="flex flex-col items-center justify-center mb-3 cursor-pointer group" onclick="window.location.href='index.html'">
+                <div class="text-center">
+                    <h1 class="text-black title-glow text-2xl md:text-3xl font-bold leading-none font-mystic tracking-[0.15em] mb-1">A&T Harmonies</h1>
+                    <span class="text-gray-400 text-[0.7rem] uppercase tracking-widest font-body">Takács Attila</span>
                 </div>
-                <div>
-                    <button type="button" id="hamburger-btn" class="text-copper hover:text-copper-light focus:outline-none transition-transform duration-300 hover:scale-110">
-                        <svg class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </button>
-                </div>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-3 md:gap-x-8 w-full pt-2">
+                <a href="index.html" class="nav-link text-sm md:text-base text-elegant-green hover:text-copper transition-colors uppercase tracking-widest font-semibold">Kezdőlap</a>
+                <a href="nyaklancok.html" class="nav-link text-sm md:text-base text-copper transition-colors uppercase tracking-widest font-bold border-b-2 border-copper pb-1">Nyakláncok</a>
+                <a href="karperecek.html" class="nav-link text-sm md:text-base text-elegant-green hover:text-copper transition-colors uppercase tracking-widest font-semibold">Karperecek</a>
+                <a href="orgonitok.html" class="nav-link text-sm md:text-base text-elegant-green hover:text-copper transition-colors uppercase tracking-widest font-semibold">Orgonitok</a>
+                
+                <div class="hidden sm:block w-px h-5 bg-copper/30 mx-2"></div>
+                <a href="vezerlopult.html" class="nav-link flex items-center gap-2 px-4 py-1.5 bg-copper rounded-md text-sm md:text-base text-black hover:bg-copper-light transition-all duration-300 uppercase tracking-widest font-bold shadow-[0_0_15px_rgba(200,122,65,0.4)]">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    Vezérlőpult
+                </a>
             </div>
         </div>
     </nav>
 
-    <div id="side-menu" class="fixed inset-y-0 right-0 z-[60] w-64 bg-ether-dark border-l border-copper/30 transform translate-x-full transition-transform duration-300 ease-in-out shadow-2xl flex flex-col">
-        <div class="flex justify-end p-6">
-            <button id="close-menu-btn" class="text-copper hover:text-copper-light">
-                <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
-        </div>
-        <div class="flex flex-col space-y-6 px-8 pt-4">
-            <a href="index.html" class="menu-link nav-link text-xl text-gray-300 hover:text-copper-light border-b border-copper/20 pb-2">Kezdőlap</a>
-            <a href="nyaklancok.html" class="menu-link nav-link text-xl text-copper hover:text-copper-light">Nyakláncok</a>
-            <a href="karperecek.html" class="menu-link nav-link text-xl text-gray-300 hover:text-copper-light">Karperecek</a>
-            <a href="orgonitok.html" class="menu-link nav-link text-xl text-gray-300 hover:text-copper-light">Eszköz & Orgonit</a>
-        </div>
-    </div>
-    <div id="menu-overlay" class="fixed inset-0 bg-black/50 z-[55] hidden opacity-0 transition-opacity duration-300"></div>
-
-    <section class="pt-32 pb-12 relative">
-        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-10"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            <h1 class="text-4xl md:text-5xl font-bold text-copper-light mb-4">Kézműves Réz Nyakláncok</h1>
-            <p class="text-lg text-gray-400 max-w-2xl mx-auto italic">
-                Szakrális geometria, ősi tudás és az ásványok ereje egybefonva. Minden darab egyedi szándékkal készül, hogy támogassa a személyes utadat.
-            </p>
-        </div>
-    </section>
-
-    <section class="py-12 bg-gradient-to-b from-ether-dark to-earth-green/10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24">
-
-            <div class="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
-                <div class="w-full lg:w-1/2 relative group">
-                    <div class="glass-effect p-2 rounded-2xl transition-transform duration-500 group-hover:scale-[1.02]">
-                        <img src="https://images.unsplash.com/photo-1599643477874-5c866f4369ec?q=80&w=1000&auto=format&fit=crop" alt="Ametiszt Tensor Nyaklánc" class="w-full h-[500px] object-cover rounded-xl shadow-2xl border border-copper/20">
-                    </div>
-                </div>
-                <div class="w-full lg:w-1/2 space-y-6">
-                    <h2 class="text-3xl font-bold text-copper-light">Ametiszt Harmónia Medál</h2>
-                    <div class="text-gray-300 space-y-4 leading-relaxed">
-                        <p>
-                            Ez az egyedi készítésű réz nyaklánc a tensor technológia alapelveit követve lett megfonva. A középpontjában egy tisztított, nyers ametiszt kristály található, amely a koronacsakra aktiválásáért és a spirituális tisztánlátásért felel.
-                        </p>
-                        <p>
-                            A réz kiváló energiavezető tulajdonsága felerősíti az ametiszt rezgését. A medál körüli szakrális geometriai fonás nem csak esztétikus, hanem egy védelmező energiamezőt is generál a viselője körül. Tökéletes választás meditációhoz, vagy a rohanó mindennapok stresszének oldására.
-                        </p>
-                        <ul class="list-disc list-inside text-gray-400 mt-4 space-y-2">
-                            <li><span class="text-copper">Anyag:</span> 99.9% tisztaságú vörösréz</li>
-                            <li><span class="text-copper">Ásvány:</span> Természetes nyers Ametiszt</li>
-                            <li><span class="text-copper">Frekvencia:</span> 144 MHz (Slim Spurling féle Cubit)</li>
-                        </ul>
-                    </div>
-                </div>
+    <main class="flex-grow pt-44 pb-20 px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-10 pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto relative z-20">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold text-copper mb-4">Nyakláncok</h2>
+                <p class="text-gray-400 italic max-w-2xl mx-auto">Szakrális energiakódok a mellkason viselve, melyek összekötik a szíved a kozmosz rezgésével.</p>
             </div>
 
-            <hr class="border-copper/10 w-1/2 mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                
+                <div class="bg-black/60 border border-copper/20 rounded-2xl overflow-hidden shadow-xl hover:shadow-[0_0_25px_rgba(200,122,65,0.2)] hover:border-copper/50 transition-all duration-500 group flex flex-col">
+                    
+                    <div class="relative h-72 overflow-hidden bg-gray-900 flex items-center justify-center">
+                        <img src="./kepek/IMG_20251001_143148.jpg" alt="Veyara Nyaklánc" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" onerror="this.src='https://via.placeholder.com/400x500/1a1a1a/c87a41?text=Kep+Hianyik'">
+                    </div>
 
-            <div class="flex flex-col lg:flex-row-reverse items-center gap-10 lg:gap-16">
-                <div class="w-full lg:w-1/2 relative group">
-                    <div class="glass-effect p-2 rounded-2xl transition-transform duration-500 group-hover:scale-[1.02]">
-                        <img src="https://images.unsplash.com/photo-1611085583191-a3b181a88401?q=80&w=1000&auto=format&fit=crop" alt="Hegyikristály Élet Virága" class="w-full h-[500px] object-cover rounded-xl shadow-2xl border border-copper/20">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-copper-light text-2xl font-semibold mb-2 font-mystic">Veyara</h3>
+                        <p class="text-elegant-green text-sm uppercase tracking-widest mb-4 font-bold">A Végtelen Fény Őrzője</p>
+                        
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6 flex-grow">
+                            Veyara az ősi Atlantisz fényének emléke, a Végtelen Fény Őrzője, aki most rézspirálban és hegyikristályban tér vissza. A Sacred Cubit triskelion szakrális geometriája a test, lélek és szellem egységét hordozza, míg a yin–yang középpont az ellentétek harmóniáját teremti meg. A spirál az élet energiáját vezeti felfelé, a hegyikristály pedig tisztít és felerősíti a rezgéseket, mint egy fényantenna. Veyara nem csupán ékszer – hanem egy élő energiakód, amely emlékeztet arra, hogy a fény benned ébred, ha képes vagy meglátni magadban a végtelent.
+                        </p>
+
+                        <div class="mt-auto border-t border-copper/20 pt-4 flex items-center justify-between">
+                            <span class="text-2xl font-bold text-white tracking-wider">9 900 Ft</span>
+                            
+                            <button class="bg-copper-light/10 text-copper hover:bg-copper hover:text-black border border-copper px-6 py-2 rounded-full font-bold transition-all duration-300 uppercase text-sm tracking-wider flex items-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                                Kosárba
+                            </button>
+                        </div>
                     </div>
                 </div>
-                <div class="w-full lg:w-1/2 space-y-6">
-                    <h2 class="text-3xl font-bold text-copper-light">Élet Magja - Hegyikristály Medál</h2>
-                    <div class="text-gray-300 space-y-4 leading-relaxed">
-                        <p>
-                            Az Élet Magja ősi szimbóluma rézbe öntve, a teremtés hét napját és az univerzum kibontakozását jelképezi. A központban elhelyezkedő hegyikristály a legerősebb energia felerősítő, mesterkristály.
-                        </p>
-                        <p>
-                            Ez a darab különleges odafigyeléssel készült, földelt állapotban, tiszta szándékkal programozva. Amikor ezt a nyakláncot viseled, a réz és a hegyikristály szinergiája segít megtisztítani az aurádat és növelni a személyes vitalitásodat. Kifejezetten ajánlom azoknak, akik energiagyógyászattal foglalkoznak, vagy sokat vannak emberek között.
-                        </p>
-                        <ul class="list-disc list-inside text-gray-400 mt-4 space-y-2">
-                            <li><span class="text-copper">Anyag:</span> Oxidált (antikolt) vörösréz</li>
-                            <li><span class="text-copper">Ásvány:</span> Csiszolt Hegyikristály gömb</li>
-                            <li><span class="text-copper">Méret:</span> 5 cm átmérő, állítható bőrszíjjal</li>
-                        </ul>
-                    </div>
                 </div>
-            </div>
+        </div>
+    </main>
 
-            </div>
-    </section>
-
-    <footer class="bg-black py-8 border-t border-copper/30 text-center text-gray-500 text-sm mt-12">
-        <p>&copy; 2024 At&Harmonies - Takács Attila. Minden jog fenntartva.</p>
+    <footer class="bg-black py-8 border-t border-copper/30 text-center text-gray-500 text-sm mt-auto z-20 relative">
+        <p>&copy; 2024 A&T Harmonies - Takács Attila. Minden jog fenntartva.</p>
     </footer>
 
-    <script>
-        // Menü kezelés
-        const hamburgerBtn = document.getElementById('hamburger-btn');
-        const closeBtn = document.getElementById('close-menu-btn');
-        const sideMenu = document.getElementById('side-menu');
-        const overlay = document.getElementById('menu-overlay');
-
-        function openMenu() {
-            sideMenu.classList.remove('translate-x-full');
-            overlay.classList.remove('hidden');
-            setTimeout(() => overlay.classList.remove('opacity-0'), 10);
-        }
-
-        function closeMenu() {
-            sideMenu.classList.add('translate-x-full');
-            overlay.classList.add('opacity-0');
-            setTimeout(() => overlay.classList.add('hidden'), 300);
-        }
-
-        hamburgerBtn.addEventListener('click', openMenu);
-        closeBtn.addEventListener('click', closeMenu);
-        overlay.addEventListener('click', closeMenu);
-    </script>
 </body>
 </html>

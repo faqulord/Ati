@@ -42,48 +42,33 @@
 <body class="antialiased selection:bg-copper selection:text-white">
 
     <nav class="fixed w-full z-50 glass-effect transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <div class="flex-shrink-0 flex items-center space-x-3 cursor-pointer" onclick="window.scrollTo(0,0)">
-                    <svg class="h-8 w-8 text-copper" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 11a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" />
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 13a4.5 4.5 0 01-9 0v1m9 0a4.5 4.5 0 01-9 0v1" />
-                    </svg>
-                    <div class="flex flex-col">
-                        <span class="text-copper-light text-xl font-semibold leading-tight font-mystic tracking-wider">At&Harmonies</span>
-                        <span class="text-gray-400 text-xs italic leading-tight">Takács Attila</span>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="flex flex-col items-center justify-center space-y-5">
+                
+                <div class="flex flex-col items-center justify-center bg-gradient-to-br from-[#f0f4f1] to-[#cbd1cc] px-10 py-4 rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.6)] border border-copper/50 cursor-pointer hover:scale-[1.02] transition-transform duration-300" onclick="window.scrollTo(0,0)">
+                    <div class="text-black text-4xl sm:text-5xl font-mystic leading-none tracking-[0.2em] ml-2">
+                        ITT
+                    </div>
+                    <div class="text-black text-2xl sm:text-3xl font-mystic leading-none tracking-[0.15em] mt-3 flex items-center ml-1">
+                        HARM<span class="text-[#d4af37] font-bold mx-[2px] text-3xl sm:text-4xl drop-shadow-md transform scale-110" style="font-family: sans-serif;">O</span>NIES
+                    </div>
+                    <div class="text-gray-600 text-xs sm:text-sm mt-3 tracking-[0.15em] font-sans font-semibold lowercase">
+                        from Attila Takacs
                     </div>
                 </div>
-                <div>
-                    <button type="button" id="hamburger-btn" class="text-copper hover:text-copper-light focus:outline-none transition-transform duration-300 hover:scale-110">
-                        <svg class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </button>
+
+                <div class="flex flex-wrap justify-center gap-4 sm:gap-8 w-full">
+                    <a href="index.html" class="nav-link text-lg md:text-xl font-bold text-[#4ade80] hover:text-white transition-colors border-b-2 border-transparent hover:border-[#4ade80] pb-1">Kezdőlap</a>
+                    <a href="nyaklancok.html" class="nav-link text-lg md:text-xl font-bold text-[#4ade80] hover:text-white transition-colors border-b-2 border-transparent hover:border-[#4ade80] pb-1">Nyakláncok</a>
+                    <a href="karperecek.html" class="nav-link text-lg md:text-xl font-bold text-[#4ade80] hover:text-white transition-colors border-b-2 border-transparent hover:border-[#4ade80] pb-1">Karperecek</a>
+                    <a href="orgonitok.html" class="nav-link text-lg md:text-xl font-bold text-[#4ade80] hover:text-white transition-colors border-b-2 border-transparent hover:border-[#4ade80] pb-1">Eszköz & Orgonit</a>
                 </div>
+
             </div>
         </div>
     </nav>
 
-    <div id="side-menu" class="fixed inset-y-0 right-0 z-[60] w-64 bg-ether-dark border-l border-copper/30 transform translate-x-full transition-transform duration-300 ease-in-out shadow-2xl flex flex-col">
-        <div class="flex justify-end p-6">
-            <button id="close-menu-btn" class="text-copper hover:text-copper-light">
-                <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
-        </div>
-        <div class="flex flex-col space-y-6 px-8 pt-4">
-            <a href="index.html" class="menu-link nav-link text-xl text-copper hover:text-copper-light border-b border-copper/20 pb-2">Kezdőlap</a>
-            <a href="nyaklancok.html" class="menu-link nav-link text-xl text-gray-300 hover:text-copper-light">Nyakláncok</a>
-            <a href="karperecek.html" class="menu-link nav-link text-xl text-gray-300 hover:text-copper-light">Karperecek</a>
-            <a href="orgonitok.html" class="menu-link nav-link text-xl text-gray-300 hover:text-copper-light">Eszköz & Orgonit</a>
-        </div>
-    </div>
-    <div id="menu-overlay" class="fixed inset-0 bg-black/50 z-[55] hidden opacity-0 transition-opacity duration-300"></div>
-
-    <section class="pt-32 pb-16 px-0 sm:px-6 lg:px-8 bg-gradient-to-b from-earth-green/20 to-ether-dark relative overflow-hidden">
+    <section class="pt-56 pb-16 px-0 sm:px-6 lg:px-8 bg-gradient-to-b from-earth-green/20 to-ether-dark relative overflow-hidden">
         <div class="max-w-7xl mx-auto text-center mb-12 relative z-10 px-4">
             <h1 class="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-copper-light to-copper-dark mb-4">
                 Kapcsolódj az Univerzum Éltető Rezgéséhez
@@ -169,7 +154,7 @@
     </section>
 
     <footer class="bg-black py-8 border-t border-copper/30 text-center text-gray-500 text-sm">
-        <p>&copy; 2024 At&Harmonies - Takács Attila. Minden jog fenntartva.</p>
+        <p>&copy; 2024 ITT&Harmonies - Takács Attila. Minden jog fenntartva.</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -232,28 +217,6 @@
                 }
             });
         });
-
-        // Menü kezelés
-        const hamburgerBtn = document.getElementById('hamburger-btn');
-        const closeBtn = document.getElementById('close-menu-btn');
-        const sideMenu = document.getElementById('side-menu');
-        const overlay = document.getElementById('menu-overlay');
-
-        function openMenu() {
-            sideMenu.classList.remove('translate-x-full');
-            overlay.classList.remove('hidden');
-            setTimeout(() => overlay.classList.remove('opacity-0'), 10);
-        }
-
-        function closeMenu() {
-            sideMenu.classList.add('translate-x-full');
-            overlay.classList.add('opacity-0');
-            setTimeout(() => overlay.classList.add('hidden'), 300);
-        }
-
-        hamburgerBtn.addEventListener('click', openMenu);
-        closeBtn.addEventListener('click', closeMenu);
-        overlay.addEventListener('click', closeMenu);
     </script>
 </body>
 </html>

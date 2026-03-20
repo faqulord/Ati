@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="hu" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eszközök - A&T Harmonies</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'copper': '#c87a41',
+                        'copper-light': '#e59a5d',
+                        'copper-dark': '#9b5625',
+                        'earth-green': '#34d399',
+                        'ether-dark': '#0a2e20', /* Smaragdzöld */
+                        'elegant-green': '#77c79b',
+                    },
+                    fontFamily: {
+                        'mystic': ['"Cinzel"', 'serif'],
+                        'body': ['"Lora"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #0a2e20; color: #e5e7eb; font-family: 'Lora', serif; overflow-x: hidden; }
+        h1, h2, h3, .nav-link { font-family: 'Cinzel', serif; }
+        .glass-effect { background: rgba(10, 46, 32, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(200, 122, 65, 0.15); }
+        .title-glow { text-shadow: 0 0 12px rgba(200, 122, 65, 0.8), 0 0 20px rgba(200, 122, 65, 0.4); }
+    </style>
+</head>
+<body class="antialiased selection:bg-copper selection:text-white flex flex-col min-h-screen">
+
+    <nav class="fixed w-full z-50 glass-effect transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 py-3 sm:px-6 lg:px-8 flex flex-col items-center">
+            <div class="flex flex-col items-center justify-center mb-3 cursor-pointer group" onclick="window.location.href='index.html'">
+                <div class="text-center">
+                    <h1 class="text-white title-glow text-2xl md:text-3xl font-bold leading-none font-mystic tracking-[0.15em] mb-1">A&T Harmonies</h1>
+                    <span class="text-gray-400 text-[0.7rem] uppercase tracking-widest font-body">Takács Attila</span>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-3 md:gap-x-6 w-full pt-2">
+                <a href="index.html" class="nav-link text-sm md:text-base text-elegant-green hover:text-copper transition-colors uppercase tracking-widest font-semibold">Kezdőlap</a>
+                <a href="nyaklancok.html" class="nav-link text-sm md:text-base text-elegant-green hover:text-copper transition-colors uppercase tracking-widest font-semibold">Nyakláncok</a>
+                <a href="karperecek.html" class="nav-link text-sm md:text-base text-elegant-green hover:text-copper transition-colors uppercase tracking-widest font-semibold">Karperecek</a>
+                <a href="gyuruk.html" class="nav-link text-sm md:text-base text-elegant-green hover:text-copper transition-colors uppercase tracking-widest font-semibold">Gyűrűk</a>
+                <a href="orgonitok.html" class="nav-link text-sm md:text-base text-elegant-green hover:text-copper transition-colors uppercase tracking-widest font-semibold">Orgonitok</a>
+                <a href="eszkozok.html" class="nav-link text-sm md:text-base text-copper transition-colors uppercase tracking-widest font-bold border-b-2 border-copper pb-1">Eszközök</a>
+
+                <div class="hidden sm:block w-px h-5 bg-copper/30 mx-2"></div>
+                
+                <a href="vezerlopult.html" class="nav-link flex items-center justify-center p-2 bg-copper rounded-full text-black hover:bg-copper-light transition-all duration-300 shadow-[0_0_15px_rgba(200,122,65,0.4)]" title="Vezérlőpult">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow pt-44 pb-20 px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-10 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto relative z-20">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold text-copper mb-4">Eszközök</h2>
+                <p class="text-gray-300 italic max-w-2xl mx-auto">Különleges energetikai eszközök, tenzor gyűrűk és harmonizálók a mindennapi egyensúlyért.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+                <div class="bg-black/40 border border-copper/20 rounded-2xl overflow-hidden shadow-xl hover:shadow-[0_0_25px_rgba(200,122,65,0.2)] hover:border-copper/50 transition-all duration-500 group flex flex-col backdrop-blur-sm">
+                    <div class="relative h-72 overflow-hidden bg-gray-900 flex items-center justify-center">
+                        <img src="./kepek/Tenzorgyűrűk2_c227669c-327e-4f12-98e2-8d977c33ae67.png" alt="Tensor gyűrűk" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" onerror="this.src='https://via.placeholder.com/400x500/0a2e20/c87a41?text=Kep+Hianyik'">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-copper-light text-2xl font-semibold mb-2 font-mystic">Tensor gyűrűk</h3>
+                        <p class="text-elegant-green text-sm uppercase tracking-widest mb-4 font-bold">Energetikai frekvencia: 144 MHz</p>
+                        
+                        <div class="text-gray-300 text-sm leading-relaxed mb-6 flex-grow space-y-3">
+                            <p class="font-semibold text-copper-light">Tulajdonságai és hatásai:</p>
+                            <ul class="list-none space-y-2">
+                                <li class="flex items-start">
+                                    <svg class="w-4 h-4 text-copper mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"></path></svg>
+                                    <span>Harmonizálja a fizikai testet és a környezetet.</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-4 h-4 text-copper mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"></path></svg>
+                                    <span>Erőteljes földelő hatás.</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-4 h-4 text-copper mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"></path></svg>
+                                    <span>Segíti a fizikai gyógyulási folyamatokat, fájdalomcsillapításban is használható.</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-4 h-4 text-copper mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"></path></svg>
+                                    <span>Tisztítja a vizet, ételeket, italokat.</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-4 h-4 text-copper mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"></path></svg>
+                                    <span>A test körül elhelyezve kiegyensúlyozza a finomenergiákat.</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-4 h-4 text-copper mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"></path></svg>
+                                    <span>Véd az elektroszmog és geopatikus stressz ellen.</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-4 h-4 text-copper mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"></path></svg>
+                                    <span>Megnyugtató, stabilizáló energiát hoz, erősíti a vitalitást.</span>
+                                </li>
+                            </ul>
+                            
+                            <p class="text-copper-light italic mt-4 border-t border-copper/20 pt-3">
+                                <span class="font-bold">Használat:</span> vízkezelésre, ételek energizálására, alvásnál a párna alá, fájdalmas testrészek köré helyezve.
+                            </p>
+                        </div>
+
+                        <div class="mt-auto border-t border-copper/20 pt-4 flex items-center justify-between">
+                            <span class="text-2xl font-bold text-white tracking-wider">7 000 Ft</span>
+                            <button class="bg-copper-light/10 text-copper hover:bg-copper hover:text-black border border-copper px-6 py-2 rounded-full font-bold transition-all duration-300 uppercase text-sm tracking-wider flex items-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                                Kosárba
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-black/80 py-8 border-t border-copper/30 text-center text-gray-500 text-sm mt-auto z-20 relative backdrop-blur-md">
+        <p>&copy; 2026 A&T Harmonies - Takács Attila. Minden jog fenntartva.</p>
+    </footer>
+
+</body>
+</html>

@@ -14,7 +14,7 @@
                         'copper-light': '#e59a5d',
                         'copper-dark': '#9b5625',
                         'earth-green': '#34d399',
-                        'ether-dark': '#0a2e20', /* Smaragdzöldre frissítve */
+                        'ether-dark': '#0a2e20', /* Smaragdzöld */
                         'elegant-green': '#77c79b',
                     },
                     fontFamily: {
@@ -27,10 +27,8 @@
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
     <style>
-        /* Háttérszín beállítása a sötétzöldre */
         body { background-color: #0a2e20; color: #e5e7eb; font-family: 'Lora', serif; overflow-x: hidden; }
         h1, h2, h3, .nav-link { font-family: 'Cinzel', serif; }
-        /* Navigáció áttetsző sötétzöld */
         .glass-effect { background: rgba(10, 46, 32, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(200, 122, 65, 0.15); }
         .title-glow { text-shadow: 0 0 12px rgba(200, 122, 65, 0.8), 0 0 20px rgba(200, 122, 65, 0.4); }
     </style>
@@ -46,16 +44,18 @@
                 </div>
             </div>
 
-            <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-3 md:gap-x-8 w-full pt-2">
+            <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-3 md:gap-x-6 w-full pt-2">
                 <a href="index.html" class="nav-link text-sm md:text-base text-elegant-green hover:text-copper transition-colors uppercase tracking-widest font-semibold">Kezdőlap</a>
                 <a href="nyaklancok.html" class="nav-link text-sm md:text-base text-copper transition-colors uppercase tracking-widest font-bold border-b-2 border-copper pb-1">Nyakláncok</a>
                 <a href="karperecek.html" class="nav-link text-sm md:text-base text-elegant-green hover:text-copper transition-colors uppercase tracking-widest font-semibold">Karperecek</a>
+                <a href="gyuruk.html" class="nav-link text-sm md:text-base text-elegant-green hover:text-copper transition-colors uppercase tracking-widest font-semibold">Gyűrűk</a>
                 <a href="orgonitok.html" class="nav-link text-sm md:text-base text-elegant-green hover:text-copper transition-colors uppercase tracking-widest font-semibold">Orgonitok</a>
+                <a href="eszkozok.html" class="nav-link text-sm md:text-base text-elegant-green hover:text-copper transition-colors uppercase tracking-widest font-semibold">Eszközök</a>
 
                 <div class="hidden sm:block w-px h-5 bg-copper/30 mx-2"></div>
-                <a href="vezerlopult.html" class="nav-link flex items-center gap-2 px-4 py-1.5 bg-copper rounded-md text-sm md:text-base text-black hover:bg-copper-light transition-all duration-300 uppercase tracking-widest font-bold shadow-[0_0_15px_rgba(200,122,65,0.4)]">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                    Vezérlőpult
+                
+                <a href="vezerlopult.html" class="nav-link flex items-center justify-center p-2 bg-copper rounded-full text-black hover:bg-copper-light transition-all duration-300 shadow-[0_0_15px_rgba(200,122,65,0.4)]" title="Vezérlőpult">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                 </a>
             </div>
         </div>

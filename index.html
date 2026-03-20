@@ -15,8 +15,8 @@
                         'copper': '#c87a41',
                         'copper-light': '#e59a5d',
                         'copper-dark': '#9b5625',
-                        'earth-green': '#34d399', /* Lecserélve egy tiszta, világos smaragdzöldre */
-                        'ether-dark': '#1a1a1a',
+                        'earth-green': '#34d399', 
+                        'ether-dark': '#0a2e20', /* Beállítva a mély smaragdzöldre a tökéletes átmenetekért */
                         'elegant-green': '#77c79b',
                     },
                     fontFamily: {
@@ -29,17 +29,19 @@
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #1a1a1a; color: #e5e7eb; font-family: 'Lora', serif; overflow-x: hidden; }
+        /* A háttérszín a végleges smaragdzöld (#0a2e20) */
+        body { background-color: #0a2e20; color: #e5e7eb; font-family: 'Lora', serif; overflow-x: hidden; }
         h1, h2, h3, .nav-link { font-family: 'Cinzel', serif; }
-        .glass-effect { background: rgba(26, 26, 26, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(200, 122, 65, 0.15); }
+        /* A menüsáv háttere is igazodik a zöldhöz */
+        .glass-effect { background: rgba(10, 46, 32, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(200, 122, 65, 0.15); }
         .swiper-slide { display: flex; justify-content: center; align-items: center; }
-        .video-container { width: 100%; max-width: 400px; aspect-ratio: 9/16; background-color: #000; border-radius: 1rem; overflow: hidden; border: 1px solid rgba(200, 122, 65, 0.4); box-shadow: 0 10px 30px rgba(0,0,0,0.5); position: relative;}
+        .video-container { width: 100%; max-width: 400px; aspect-ratio: 9/16; background-color: #0a2e20; border-radius: 1rem; overflow: hidden; border: 1px solid rgba(200, 122, 65, 0.4); box-shadow: 0 10px 30px rgba(0,0,0,0.5); position: relative;}
         video { width: 100%; height: 100%; object-fit: cover; }
         ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #1a1a1a; }
+        ::-webkit-scrollbar-track { background: #0a2e20; }
         ::-webkit-scrollbar-thumb { background: #c87a41; border-radius: 4px; }
 
-        /* Egyedi fényudvar a fekete címhez, hogy látszódjon a sötét háttéren */
+        /* Egyedi fényudvar a címhez, hogy látszódjon a sötét háttéren */
         .title-glow {
             text-shadow: 0 0 12px rgba(200, 122, 65, 0.8), 0 0 20px rgba(200, 122, 65, 0.4);
         }
@@ -52,13 +54,13 @@
 
             <div class="flex flex-col items-center justify-center mb-3 cursor-pointer group" onclick="window.scrollTo(0,0)">
                 <div class="text-center">
-                    <h1 class="text-black title-glow text-2xl md:text-3xl font-bold leading-none font-mystic tracking-[0.15em] mb-1">A&T Harmonies</h1>
+                    <h1 class="text-white title-glow text-2xl md:text-3xl font-bold leading-none font-mystic tracking-[0.15em] mb-1">A&T Harmonies</h1>
                     <span class="text-gray-400 text-[0.7rem] uppercase tracking-widest font-body">Takács Attila</span>
                 </div>
             </div>
 
             <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-3 md:gap-x-8 w-full pt-2">
-                <a href="index.html" class="nav-link text-sm md:text-base text-elegant-green hover:text-copper transition-colors uppercase tracking-widest font-semibold">Kezdőlap</a>
+                <a href="index.html" class="nav-link text-sm md:text-base text-copper transition-colors uppercase tracking-widest font-bold border-b-2 border-copper pb-1">Kezdőlap</a>
                 <a href="nyaklancok.html" class="nav-link text-sm md:text-base text-elegant-green hover:text-copper transition-colors uppercase tracking-widest font-semibold">Nyakláncok</a>
                 <a href="karperecek.html" class="nav-link text-sm md:text-base text-elegant-green hover:text-copper transition-colors uppercase tracking-widest font-semibold">Karperecek</a>
                 <a href="orgonitok.html" class="nav-link text-sm md:text-base text-elegant-green hover:text-copper transition-colors uppercase tracking-widest font-semibold">Orgonitok</a>
@@ -78,7 +80,7 @@
             <h2 class="text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-copper-light to-copper-dark mb-6 leading-tight">
                 Kapcsolódj az Univerzum<br>Éltető Rezgéséhez
             </h2>
-            <p class="text-lg text-gray-400 max-w-2xl mx-auto italic font-body">
+            <p class="text-lg text-gray-300 max-w-2xl mx-auto italic font-body">
                 A réz nem csupán fém. Földelő éter, mely összeköti a testet a kozmosz végtelen energiájával.
             </p>
         </div>
@@ -158,8 +160,8 @@
         </div>
     </section>
 
-    <footer class="bg-black py-8 border-t border-copper/30 text-center text-gray-500 text-sm">
-        <p>&copy; 2024 A&T Harmonies - Takács Attila. Minden jog fenntartva.</p>
+    <footer class="bg-black/80 py-8 border-t border-copper/30 text-center text-gray-500 text-sm backdrop-blur-md relative z-20">
+        <p>&copy; 2026 A&T Harmonies - Takács Attila. Minden jog fenntartva.</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>

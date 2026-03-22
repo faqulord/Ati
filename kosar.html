@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="hu" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kosár és Pénztár - A&T Harmonies</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'copper': '#c87a41',
+                        'copper-light': '#e59a5d',
+                        'copper-dark': '#9b5625',
+                        'earth-green': '#34d399',
+                        'ether-dark': '#0a2e20',
+                        'elegant-green': '#77c79b',
+                    },
+                    fontFamily: {
+                        'mystic': ['"Cinzel"', 'serif'],
+                        'body': ['"Lora"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #0a2e20; color: #e5e7eb; font-family: 'Lora', serif; overflow-x: hidden; }
+        h1, h2, h3, .nav-link { font-family: 'Cinzel', serif; }
+        .glass-effect { background: rgba(10, 46, 32, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(200, 122, 65, 0.15); }
+        .glass-panel { background: rgba(10, 46, 32, 0.6); backdrop-filter: blur(8px); border: 1px solid rgba(200, 122, 65, 0.2); }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0a2e20; }
+        ::-webkit-scrollbar-thumb { background: #c87a41; border-radius: 4px; }
+        .title-glow { text-shadow: 0 0 12px rgba(200, 122, 65, 0.8), 0 0 20px rgba(200, 122, 65, 0.4); }
+    </style>
+</head>
+<body class="antialiased selection:bg-copper selection:text-white flex flex-col min-h-screen">
+
+    <nav class="fixed w-full z-50 glass-effect transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 py-3 sm:px-6 lg:px-8 flex flex-col items-center">
+            <div class="flex flex-col items-center justify-center mb-3 cursor-pointer group" onclick="window.location.href='index.html'">
+                <div class="text-center">
+                    <h1 class="text-white title-glow text-2xl md:text-3xl font-bold leading-none font-mystic tracking-[0.15em] mb-1">A&T Harmonies</h1>
+                    <span class="text-gray-400 text-[0.7rem] uppercase tracking-widest font-body">Takács Attila</span>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 md:gap-x-6 w-full pt-2">
+                <a href="index.html" class="nav-link text-sm md:text-base text-elegant-green hover:text-copper transition-colors uppercase tracking-widest font-semibold">Kezdőlap</a>
+                <a href="nyaklancok.html" class="nav-link text-sm md:text-base text-elegant-green hover:text-copper transition-colors uppercase tracking-widest font-semibold">Nyakláncok</a>
+                <a href="karperecek.html" class="nav-link text-sm md:text-base text-elegant-green hover:text-copper transition-colors uppercase tracking-widest font-semibold">Karperecek</a>
+                <a href="gyuruk.html" class="nav-link text-sm md:text-base text-elegant-green hover:text-copper transition-colors uppercase tracking-widest font-semibold">Gyűrűk</a>
+                <a href="orgonitok.html" class="nav-link text-sm md:text-base text-elegant-green hover:text-copper transition-colors uppercase tracking-widest font-semibold">Orgonitok</a>
+                <a href="eszkozok.html" class="nav-link text-sm md:text-base text-elegant-green hover:text-copper transition-colors uppercase tracking-widest font-semibold">Eszközök / Tensor Gyűrűk</a>
+                <a href="aszf.html" class="nav-link text-sm md:text-base text-elegant-green hover:text-copper transition-colors uppercase tracking-widest font-semibold">ÁSZF</a>
+
+                <div class="hidden sm:block w-px h-5 bg-copper/30 mx-2"></div>
+
+                <a href="kosar.html" class="nav-link relative flex items-center justify-center p-2 bg-copper rounded-full text-black hover:bg-copper-light transition-all duration-300 shadow-[0_0_15px_rgba(200,122,65,0.4)]" title="Kosár">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    <span id="cart-badge" class="hidden absolute -top-1 -right-1 bg-red-600 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center border border-black">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+<main class="flex-grow pt-60 md:pt-48 pb-20 px-4 sm:px-6 lg:px-8 relative bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]">
+        <div class="max-w-7xl mx-auto relative z-10">
+            
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-copper-light to-copper-dark mb-4">Pénztár</h2>
+                <p class="text-gray-400 font-body italic">Rendelésed leadása regisztráció nélkül, biztonságosan.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                
+                <div class="glass-panel p-6 md:p-8 rounded-2xl shadow-2xl h-fit">
+                    <h3 class="text-2xl text-copper mb-6 border-b border-copper/20 pb-2 font-mystic">Kosarad Tartalma</h3>
+                    
+                    <div id="cart-items-container" class="space-y-4 mb-6 min-h-[150px]">
+                        </div>
+
+                    <div class="border-t border-copper/30 pt-4 flex justify-between items-center text-xl font-bold text-white">
+                        <span>Fizetendő összesen:</span>
+                        <span id="cart-total-price">0 Ft</span>
+                    </div>
+                </div>
+
+                <div class="glass-panel p-6 md:p-8 rounded-2xl shadow-2xl h-fit">
+                    <h3 class="text-2xl text-copper mb-6 border-b border-copper/20 pb-2 font-mystic">Szállítási Adatok</h3>
+                    
+                    <form id="checkout-form" class="space-y-4" onsubmit="handleCheckout(event)">
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm text-copper-light mb-1">Teljes név *</label>
+                                <input type="text" id="nev" required class="w-full bg-black/50 border border-copper/30 rounded px-3 py-2 text-white focus:outline-none focus:border-copper transition-colors">
+                            </div>
+                            <div>
+                                <label class="block text-sm text-copper-light mb-1">E-mail cím *</label>
+                                <input type="email" id="email" required class="w-full bg-black/50 border border-copper/30 rounded px-3 py-2 text-white focus:outline-none focus:border-copper transition-colors">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm text-copper-light mb-1">Telefonszám *</label>
+                            <input type="tel" id="telefon" required class="w-full bg-black/50 border border-copper/30 rounded px-3 py-2 text-white focus:outline-none focus:border-copper transition-colors">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm text-copper-light mb-1">Szállítási cím (Irányítószám, Város, Utca, Házszám) *</label>
+                            <input type="text" id="cim" required class="w-full bg-black/50 border border-copper/30 rounded px-3 py-2 text-white focus:outline-none focus:border-copper transition-colors">
+                        </div>
+
+                        <h3 class="text-xl text-copper mt-8 mb-4 border-b border-copper/20 pb-2 font-mystic">Fizetési Mód</h3>
+                        
+                        <div class="space-y-3">
+                            <label class="flex items-center cursor-pointer group bg-black/30 p-3 rounded border border-copper/20 hover:border-copper/50 transition-colors">
+                                <input type="radio" name="fizetes" value="Utánvét" class="form-radio text-copper focus:ring-copper" checked>
+                                <span class="ml-3 text-gray-300 group-hover:text-white">Fizetés Utánvéttel (Készpénz/Bankkártya a futárnál)</span>
+                            </label>
+                            <label class="flex items-center cursor-pointer group bg-black/30 p-3 rounded border border-copper/20 hover:border-copper/50 transition-colors">
+                                <input type="radio" name="fizetes" value="Banki átutalás" class="form-radio text-copper focus:ring-copper">
+                                <span class="ml-3 text-gray-300 group-hover:text-white">Banki átutalás előre</span>
+                            </label>
+                            <label class="flex items-center cursor-pointer group bg-black/30 p-3 rounded border border-copper/20 hover:border-copper/50 transition-colors opacity-50" title="Hamarosan!">
+                                <input type="radio" name="fizetes" value="Stripe" class="form-radio text-copper focus:ring-copper" disabled>
+                                <span class="ml-3 text-gray-500">Online Bankkártya / Apple Pay (Hamarosan)</span>
+                            </label>
+                        </div>
+
+                        <div class="mt-6 pt-6 border-t border-copper/20">
+                            <label class="flex items-start cursor-pointer group mb-6">
+                                <input type="checkbox" id="aszf-elfogad" required class="form-checkbox text-copper focus:ring-copper mt-1">
+                                <span class="ml-3 text-sm text-gray-400 group-hover:text-gray-200">Elfogadam az <a href="aszf.html" class="text-copper underline" target="_blank">Általános Szerződési Feltételeket</a> és az adatkezelési tájékoztatót. *</span>
+                            </label>
+
+                            <button type="submit" class="w-full bg-copper hover:bg-copper-light text-black font-bold text-lg py-4 rounded-xl transition-all duration-300 shadow-[0_0_20px_rgba(200,122,65,0.4)] uppercase tracking-widest">
+                                Rendelés Leadása
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-black/80 py-8 border-t border-copper/30 text-center text-gray-400 text-sm backdrop-blur-md relative z-20 space-y-3">
+        <p class="text-copper-light text-base">Kövess be Facebookon és TikTokon is, ha értékesnek gondolod amit csinálok.</p>
+        <p>&copy; 2026 A&T Harmonies - Takács Attila. Minden jog fenntartva. | Feltételek és szabályzatok</p>
+    </footer>
+
+    <script src="kosar.js"></script>
+
+    <script>
+        function renderCartPage() {
+            let cart = getCart();
+            let container = document.getElementById('cart-items-container');
+            let totalPriceEl = document.getElementById('cart-total-price');
+            
+            container.innerHTML = '';
+            let total = 0;
+
+            if (cart.length === 0) {
+                container.innerHTML = '<p class="text-gray-400 italic text-center py-8">A kosarad jelenleg üres.</p>';
+                totalPriceEl.innerText = '0 Ft';
+                return;
+            }
+
+            cart.forEach((item, index) => {
+                let itemTotal = item.price * item.quantity;
+                total += itemTotal;
+
+                let extraText = item.extras ? `<p class="text-xs text-elegant-green mt-1">Változat/Méret: ${item.extras}</p>` : '';
+
+                container.innerHTML += `
+                    <div class="flex items-center gap-4 bg-black/40 p-3 rounded-lg border border-copper/10">
+                        <img src="${item.image}" class="w-16 h-16 object-cover rounded border border-copper/30" onerror="this.src='https://via.placeholder.com/64/0a2e20/c87a41'">
+                        <div class="flex-grow">
+                            <h4 class="text-white font-semibold">${item.name}</h4>
+                            ${extraText}
+                            <div class="text-copper-light text-sm mt-1">${item.price.toLocaleString('hu-HU')} Ft / db</div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-gray-300 text-sm">Mennyiség: ${item.quantity}</span>
+                            <button onclick="removeFromCartIndex(${index})" class="p-1 text-red-400 hover:text-red-500 transition-colors ml-2" title="Törlés">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            // Szállítási költség fix hozzáadása (példa)
+            total += 1500;
+            container.innerHTML += `
+                <div class="flex justify-between items-center text-gray-400 text-sm px-2 pt-2">
+                    <span>Szállítási költség (Futárszolgálat):</span>
+                    <span>1 500 Ft</span>
+                </div>
+            `;
+
+            totalPriceEl.innerText = total.toLocaleString('hu-HU') + ' Ft';
+        }
+
+        function removeFromCartIndex(index) {
+            let cart = getCart();
+            cart.splice(index, 1);
+            saveCart(cart);
+            renderCartPage();
+        }
+
+        function handleCheckout(event) {
+            event.preventDefault();
+            let cart = getCart();
+            if(cart.length === 0) {
+                alert("A kosarad üres! Kérlek, válassz egy terméket a rendeléshez.");
+                return;
+            }
+
+            // Mivel nincs még szerverünk, most csak egy teszt üzenetet dobunk, 
+            // és kiürítjük a kosarat, mintha sikeres lett volna a rendelés.
+            let fizetesMod = document.querySelector('input[name="fizetes"]:checked').value;
+            alert(`Sikeres rendelés szimuláció!\nFizetési mód: ${fizetesMod}\n\nHamarosan bekötjük az e-mail küldő rendszert (Formspree) és a Stripe-ot is!`);
+            
+            // Kosár ürítése a "sikeres" rendelés után
+            localStorage.removeItem('at_harmonies_cart');
+            window.location.href = "index.html"; // Visszairányítás a főoldalra
+        }
+
+        // Oldal betöltésekor kosár kirajzolása
+        document.addEventListener('DOMContentLoaded', renderCartPage);
+    </script>
+</body>
+</html>

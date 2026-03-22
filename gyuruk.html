@@ -55,8 +55,9 @@
 
                 <div class="hidden sm:block w-px h-5 bg-copper/30 mx-2"></div>
 
-                <a href="vezerlopult.html" class="nav-link flex items-center justify-center p-2 bg-copper rounded-full text-black hover:bg-copper-light transition-all duration-300 shadow-[0_0_15px_rgba(200,122,65,0.4)]" title="Vezérlőpult">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                <a href="kosar.html" class="nav-link relative flex items-center justify-center p-2 bg-elegant-green rounded-full text-black hover:bg-copper transition-all duration-300 shadow-[0_0_15px_rgba(119,199,155,0.4)]" title="Kosár">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    <span id="cart-badge" class="hidden absolute -top-1 -right-1 bg-red-600 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center border border-black">0</span>
                 </a>
             </div>
         </div>
@@ -100,7 +101,7 @@
                         </div>
                         <div class="mt-auto border-t border-copper/20 pt-4 flex items-center justify-between">
                             <span class="text-2xl font-bold text-white tracking-wider">5 000 Ft</span>
-                            <button class="bg-copper-light/10 text-copper hover:bg-copper hover:text-black border border-copper px-6 py-2 rounded-full font-bold transition-all duration-300 uppercase text-sm tracking-wider flex items-center gap-2">
+                            <button onclick="addToCart('gy-eletorveny', 'Életörvény Réz Gyűrű', 5000, './kepek/20251007_154705.jpg')" class="bg-copper-light/10 text-copper hover:bg-copper hover:text-black border border-copper px-6 py-2 rounded-full font-bold transition-all duration-300 uppercase text-sm tracking-wider flex items-center gap-2 cursor-pointer">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
                                 Kosárba
                             </button>
@@ -120,7 +121,7 @@
                         </div>
                         <div class="mt-auto border-t border-copper/20 pt-4 flex items-center justify-between">
                             <span class="text-2xl font-bold text-white tracking-wider">6 000 Ft</span>
-                            <button class="bg-copper-light/10 text-copper hover:bg-copper hover:text-black border border-copper px-6 py-2 rounded-full font-bold transition-all duration-300 uppercase text-sm tracking-wider flex items-center gap-2">
+                            <button onclick="addToCart('gy-szentarany', 'Szent Arány Tensor Gyűrű', 6000, './kepek/IMG_20251003_072245_1.jpg')" class="bg-copper-light/10 text-copper hover:bg-copper hover:text-black border border-copper px-6 py-2 rounded-full font-bold transition-all duration-300 uppercase text-sm tracking-wider flex items-center gap-2 cursor-pointer">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
                                 Kosárba
                             </button>
@@ -137,17 +138,17 @@
                         <p class="text-elegant-green text-sm uppercase tracking-widest mb-4 font-bold">Réz Gyűrű Virággal</p>
                         <div class="text-gray-300 text-sm leading-relaxed mb-6 flex-grow space-y-3">
                             <p>Nincs túlgondolva – csak egy virágra emlékeztető spirál, amely a természet folyamatos kibontakozását idézi. Arra emlékeztet, hogy minden valódi növekedés belülről indul.</p>
-                            
+
                             <div class="mt-4 pt-3 border-t border-copper/20">
                                 <label for="ring-size" class="block text-copper-light text-xs font-bold mb-2 uppercase tracking-wide">Ujjvastagság mérete (cm):</label>
                                 <input type="number" id="ring-size" name="ring-size" min="1.8" max="2.5" step="0.1" placeholder="pl. 2.1" class="w-full bg-black/50 border border-copper/50 rounded-lg px-4 py-2 text-gray-200 focus:outline-none focus:border-copper focus:ring-1 focus:ring-copper transition-colors">
                                 <p class="text-xs text-gray-500 mt-1">Adj meg egy pontos értéket 1.8 és 2.5 cm között.</p>
                             </div>
                         </div>
-                        
+
                         <div class="mt-auto border-t border-copper/20 pt-4 flex items-center justify-between">
                             <span class="text-2xl font-bold text-white tracking-wider">5 000 Ft</span>
-                            <button class="bg-copper-light/10 text-copper hover:bg-copper hover:text-black border border-copper px-6 py-2 rounded-full font-bold transition-all duration-300 uppercase text-sm tracking-wider flex items-center gap-2">
+                            <button onclick="let m = document.getElementById('ring-size').value; if(!m){alert('Kérlek add meg a gyűrű méretét!'); return;} addToCart('gy-kibont', 'Kibontakozás Réz Gyűrű', 5000, './kepek/Messenger_creation_2766B643-D50F-4F87-A904-E1AA6CCB39D5.jpeg', m + ' cm')" class="bg-copper-light/10 text-copper hover:bg-copper hover:text-black border border-copper px-6 py-2 rounded-full font-bold transition-all duration-300 uppercase text-sm tracking-wider flex items-center gap-2 cursor-pointer">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
                                 Kosárba
                             </button>
@@ -163,6 +164,8 @@
         <p class="text-copper-light text-base">Kövess be Facebookon és TikTokon is, ha értékesnek gondolod amit csinálok.</p>
         <p>&copy; 2026 A&T Harmonies - Takács Attila. Minden jog fenntartva. | Feltételek és szabályzatok</p>
     </footer>
+
+    <script src="kosar.js"></script>
 
 </body>
 </html>

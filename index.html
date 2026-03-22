@@ -41,7 +41,7 @@
         .title-glow { text-shadow: 0 0 12px rgba(200, 122, 65, 0.8), 0 0 20px rgba(200, 122, 65, 0.4); }
     </style>
 </head>
-<body class="antialiased selection:bg-copper selection:text-white">
+<body class="antialiased selection:bg-copper selection:text-white flex flex-col min-h-screen">
 
     <nav class="fixed w-full z-50 glass-effect transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 py-3 sm:px-6 lg:px-8 flex flex-col items-center">
@@ -64,15 +64,16 @@
 
                 <div class="hidden sm:block w-px h-5 bg-copper/30 mx-2"></div>
 
-                <a href="vezerlopult.html" class="nav-link flex items-center justify-center p-2 bg-copper rounded-full text-black hover:bg-copper-light transition-all duration-300 shadow-[0_0_15px_rgba(200,122,65,0.4)]" title="Vezérlőpult">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                <a href="kosar.html" class="nav-link relative flex items-center justify-center p-2 bg-elegant-green rounded-full text-black hover:bg-copper transition-all duration-300 shadow-[0_0_15px_rgba(119,199,155,0.4)]" title="Kosár">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    <span id="cart-badge" class="hidden absolute -top-1 -right-1 bg-red-600 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center border border-black">0</span>
                 </a>
             </div>
 
         </div>
     </nav>
 
-    <section class="pt-60 md:pt-48 pb-16 px-0 sm:px-6 lg:px-8 bg-gradient-to-b from-earth-green/10 to-ether-dark relative overflow-hidden">
+    <section class="flex-grow pt-60 md:pt-48 pb-16 px-0 sm:px-6 lg:px-8 bg-gradient-to-b from-earth-green/10 to-ether-dark relative overflow-hidden">
         <div class="max-w-7xl mx-auto text-center mb-12 relative z-10 px-4">
             <h2 class="text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-copper-light to-copper-dark mb-6 leading-tight">
                 Kapcsolódj az Univerzum<br>Éltető Rezgéséhez
@@ -99,8 +100,7 @@
                         </button>
                     </div>
                 </div>
-
-                <div class="swiper-slide py-8">
+<div class="swiper-slide py-8">
                     <div class="video-container group">
                         <video loop muted playsinline autoplay>
                             <source src="./videos/Messenger_creation_29D9ACAD-5F44-4ACF-80F6-9663EB893D87.mp4" type="video/mp4">
@@ -134,7 +134,8 @@
             <div class="swiper-pagination"></div>
         </div>
     </section>
-<section id="kivagyok" class="py-20 relative border-t border-copper/20 pb-32">
+
+    <section id="kivagyok" class="py-20 relative border-t border-copper/20 pb-32">
         <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-10"></div>
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <h2 class="text-3xl md:text-4xl font-bold text-center text-copper mb-12">Ki Vagyok Én</h2>
@@ -143,7 +144,7 @@
                 <p>
                     A kapcsolatom a rézzel 2024-ben kezdődött, amikor személyes problémáimra kerestem megoldást. Egy barátom javasolta, hogy földeljek, készítsek magamnak valamit rézből, és elkezdtem hajtogatni, fonni egy egyszerű karperecet – és csodával határos módon aznap este nyugodt, kiegyensúlyozott és türelmes lettem.
                 </p>
-                <p>
+<p>
                     Ez az esemény hívott meg az anyaghoz. Itt kezdődött az életutam. Megismerkedtem a réz energiájával, tanulmányoztam az ősi civilizációk használatát a Suméroktól az Atlantisziakon át az ősi magyarokig, és itt ismertem meg <span class="text-copper-light font-semibold">Slim Spurling</span> amerikai mester munkáit is, aki a tensor technológiát felfedezte. Slim rámutatott, hogy a réz nemcsak vezeti az energiát, hanem a készítő szándékát is, miközben közvetíti az univerzum éltető rezgéseit.
                 </p>
                 <p>
@@ -156,7 +157,7 @@
         </div>
     </section>
 
-    <footer class="bg-black/80 py-8 border-t border-copper/30 text-center text-gray-500 text-sm backdrop-blur-md relative z-20 space-y-3">
+    <footer class="bg-black/80 py-8 border-t border-copper/30 text-center text-gray-400 text-sm mt-auto z-20 relative backdrop-blur-md space-y-3">
         <p class="text-copper-light text-base">Kövess be Facebookon és TikTokon is, ha értékesnek gondolod amit csinálok.</p>
         <p>&copy; 2026 A&T Harmonies - Takács Attila. Minden jog fenntartva. | Feltételek és szabályzatok</p>
     </footer>
@@ -222,5 +223,8 @@
             });
         });
     </script>
+    
+    <script src="kosar.js"></script>
+
 </body>
 </html>

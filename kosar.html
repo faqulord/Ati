@@ -66,7 +66,8 @@
             </div>
         </div>
     </nav>
-<main class="flex-grow pt-60 md:pt-48 pb-20 px-4 sm:px-6 lg:px-8 relative bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]">
+
+    <main class="flex-grow pt-60 md:pt-48 pb-20 px-4 sm:px-6 lg:px-8 relative bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]">
         <div class="max-w-7xl mx-auto relative z-10">
             
             <div class="text-center mb-12">
@@ -87,8 +88,7 @@
                         <span id="cart-total-price">0 Ft</span>
                     </div>
                 </div>
-
-                <div class="glass-panel p-6 md:p-8 rounded-2xl shadow-2xl h-fit">
+<div class="glass-panel p-6 md:p-8 rounded-2xl shadow-2xl h-fit">
                     <h3 class="text-2xl text-copper mb-6 border-b border-copper/20 pb-2 font-mystic">Szállítási Adatok</h3>
                     
                     <form id="checkout-form" class="space-y-4" onsubmit="handleCheckout(event)">
@@ -137,7 +137,7 @@
                                 <span class="ml-3 text-sm text-gray-400 group-hover:text-gray-200">Elfogadam az <a href="aszf.html" class="text-copper underline" target="_blank">Általános Szerződési Feltételeket</a> és az adatkezelési tájékoztatót. *</span>
                             </label>
 
-                            <button type="submit" class="w-full bg-copper hover:bg-copper-light text-black font-bold text-lg py-4 rounded-xl transition-all duration-300 shadow-[0_0_20px_rgba(200,122,65,0.4)] uppercase tracking-widest">
+                            <button type="submit" id="submit-btn" class="w-full bg-copper hover:bg-copper-light text-black font-bold text-lg py-4 rounded-xl transition-all duration-300 shadow-[0_0_20px_rgba(200,122,65,0.4)] uppercase tracking-widest disabled:opacity-50">
                                 Rendelés Leadása
                             </button>
                         </div>
@@ -195,10 +195,10 @@
                 `;
             });
 
-            // Szállítási költség fix hozzáadása (példa)
+            // Szállítási költség
             total += 1500;
             container.innerHTML += `
-                <div class="flex justify-between items-center text-gray-400 text-sm px-2 pt-2">
+                <div class="flex justify-between items-center text-gray-400 text-sm px-2 pt-2 mt-4 border-t border-copper/10">
                     <span>Szállítási költség (Futárszolgálat):</span>
                     <span>1 500 Ft</span>
                 </div>
@@ -214,22 +214,72 @@
             renderCartPage();
         }
 
+        // AZ ÚJ E-MAIL KÜLDŐ FUNKCIÓ
         function handleCheckout(event) {
-            event.preventDefault();
+            event.preventDefault(); // Megakadályozzuk az oldal újratöltését
+            
             let cart = getCart();
             if(cart.length === 0) {
                 alert("A kosarad üres! Kérlek, válassz egy terméket a rendeléshez.");
                 return;
             }
 
-            // Mivel nincs még szerverünk, most csak egy teszt üzenetet dobunk, 
-            // és kiürítjük a kosarat, mintha sikeres lett volna a rendelés.
+            // Adatok kinyerése az űrlapból
+            let nev = document.getElementById('nev').value;
+            let email = document.getElementById('email').value;
+            let telefon = document.getElementById('telefon').value;
+            let cim = document.getElementById('cim').value;
             let fizetesMod = document.querySelector('input[name="fizetes"]:checked').value;
-            alert(`Sikeres rendelés szimuláció!\nFizetési mód: ${fizetesMod}\n\nHamarosan bekötjük az e-mail küldő rendszert (Formspree) és a Stripe-ot is!`);
-            
-            // Kosár ürítése a "sikeres" rendelés után
-            localStorage.removeItem('at_harmonies_cart');
-            window.location.href = "index.html"; // Visszairányítás a főoldalra
+
+            // Kosár formázása e-mailhez
+            let orderDetails = "RENDELÉS RÉSZLETEI:\\n-------------------\\n";
+            let total = 1500; // szállítás
+            cart.forEach(item => {
+                let extraText = item.extras ? ` [${item.extras}]` : '';
+                orderDetails += `${item.name}${extraText} - ${item.quantity} db - ${(item.price * item.quantity).toLocaleString('hu-HU')} Ft\\n`;
+                total += item.price * item.quantity;
+            });
+            orderDetails += `-------------------\\nSzállítás: 1 500 Ft\\nÖSSZESEN FIZETENDŐ: ${total.toLocaleString('hu-HU')} Ft\\n`;
+
+            // Az adatcsomag, amit elküldünk
+            let formData = {
+                "Vásárló Neve": nev,
+                "E-mail címe": email,
+                "Telefonszám": telefon,
+                "Szállítási Cím": cim,
+                "Fizetési mód": fizetesMod,
+                "Megrendelt Termékek": orderDetails,
+                "_subject": "Új rendelés érkezett: A&T Harmonies!"
+            };
+
+            // Gomb letiltása, hogy ne nyomják meg kétszer
+            let submitBtn = document.getElementById('submit-btn');
+            submitBtn.innerText = "Küldés folyamatban...";
+            submitBtn.disabled = true;
+
+            // AJAX kérés a FormSubmit API-hoz
+            fetch("https://formsubmit.co/ajax/takacsattila0@gmail.com", {
+                method: "POST",
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                // SIKERES KÜLDÉS
+                alert("Sikeres rendelés! A részleteket feldolgozzuk, hamarosan jelentkezünk.");
+                localStorage.removeItem('at_harmonies_cart'); // Kosár ürítése
+                window.location.href = "index.html"; // Vissza a főoldalra
+            })
+            .catch(error => {
+                // HIBA ESETÉN
+                console.error("Hiba történt:", error);
+                alert("Hiba történt a küldés során. Kérlek, próbáld újra később!");
+                submitBtn.innerText = "Rendelés Leadása";
+                submitBtn.disabled = false;
+            });
         }
 
         // Oldal betöltésekor kosár kirajzolása
